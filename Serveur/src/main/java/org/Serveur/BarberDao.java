@@ -20,7 +20,7 @@ public interface BarberDao {
 	@GetGeneratedKeys
 	public int insert(@BindBean Barber c);
 
-	@SqlUpdate("update barbers set photo = :photo, nom = :nom, prenom = :prenom, entreprise = :entreprise,  site=:site, adresse = :adresse, codePostal = :codePostal, ville = :ville, mail = :mail, mdp = :mdp, dateNaiss = :dateNaiss, tel = :tel, fax = :fax, metier = :metier, domaineAct = :domaineAct, description = :description, facebook = :facebook, twitter = :twitter, linkedIn = :linkedIn, googlePlus = :googlePlus, typeDePrestation = :typeDePrestation, listeProduits = :listeProduits where idt = :idt")
+	@SqlUpdate("update barbers set photo = :photo, nom = :nom, prenom = :prenom, entreprise = :entreprise,  site=:site, adresse = :adresse, codePostal = :codePostal, ville = :ville, mail = :mail, mdp = :mdp, dateNaiss = :dateNaiss, tel = :tel, fax = :fax, metier = :metier, domaineAct = :domaineAct, description = :description, facebook = :facebook, twitter = :twitter, linkedIn = :linkedIn, googlePlus = :googlePlus, typeDePrestation = :typeDePrestation where idt = :idt")
 	public void update(@BindBean Barber c);
 	
 	@SqlQuery("select count(*) from barbers")
