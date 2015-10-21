@@ -1,9 +1,11 @@
 package bap.uit.com.bap;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class Jesuis extends AppCompatActivity {
 
@@ -33,5 +35,15 @@ public class Jesuis extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void doBarbier(View view){
+        Intent intent = new Intent(Jesuis.this, InscriptionBarbier.class);
+        startActivity(intent);
+    }
+
+    public void doClient(View view){
+        Intent intent = new Intent(Jesuis.this, RDV.class);
+        startActivity(intent);
     }
 }

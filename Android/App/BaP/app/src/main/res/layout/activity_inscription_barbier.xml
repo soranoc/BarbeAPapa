@@ -4,9 +4,197 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="bap.uit.com.bap.InscriptionBarbier">
+    tools:context="bap.uit.com.bap.InscriptionBarbier"
+    android:background="@drawable/fond">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:id="@+id/nom"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:hint="Nom"
+        android:ems="10"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        android:singleLine="false"
+        android:shadowColor="#ffffff"
+        android:linksClickable="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/prenom"
+        android:layout_below="@+id/nom"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/nom"
+        android:layout_alignEnd="@+id/nom"
+        android:hint="Prenom"
+        android:textColorHint="#ffffff"
+        android:textColor="#ffffff" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/mail"
+        android:layout_below="@+id/prenom"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/prenom"
+        android:layout_alignEnd="@+id/prenom"
+        android:hint="Email"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/mdpconf"
+        android:hint="Confirmation du mot de passe"
+        android:layout_below="@+id/mdp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/mdp"
+        android:layout_alignEnd="@+id/mdp"
+        android:textColorHint="#ffffff"
+        android:textColor="#ffffff" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/adresse"
+        android:layout_below="@+id/mdpconf"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/mdpconf"
+        android:layout_alignEnd="@+id/mdpconf"
+        android:hint="Adresse"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ville"
+        android:layout_below="@+id/adresse"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/adresse"
+        android:layout_alignEnd="@+id/adresse"
+        android:hint="Ville"
+        android:textColorHint="#ffffff"
+        android:textColor="#ffffff" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/codepostal"
+        android:layout_below="@+id/ville"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/ville"
+        android:layout_alignEnd="@+id/ville"
+        android:hint="Code postal"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/tel"
+        android:layout_below="@+id/mail"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/mail"
+        android:layout_alignEnd="@+id/mail"
+        android:hint="Téléphone"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/mdp"
+        android:layout_below="@+id/tel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/tel"
+        android:layout_alignEnd="@+id/tel"
+        android:hint="Mot de passe"
+        android:textColorHint="#ffffff"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:id="@+id/register"
+        android:onClick="doRegister"
+        android:textColor="#ffffff"
+        android:background="@drawable/rose"
+        android:layout_below="@+id/codepostal"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="101dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Tarifs :"
+        android:id="@+id/tarifs"
+        android:layout_alignBottom="@+id/prixmin"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/prixmin"
+        android:layout_below="@+id/codepostal"
+        android:layout_toRightOf="@+id/tarifs"
+        android:maxLength="2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="à"
+        android:id="@+id/trait"
+        android:layout_alignBottom="@+id/prixmin"
+        android:layout_toRightOf="@+id/prixmin"
+        android:layout_toEndOf="@+id/prixmin" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/prixmax"
+        android:layout_below="@+id/codepostal"
+        android:layout_toRightOf="@+id/trait"
+        android:maxLength="3" />
 
 </RelativeLayout>

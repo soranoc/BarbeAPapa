@@ -1,9 +1,14 @@
 package bap.uit.com.bap;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import static android.widget.Toast.LENGTH_LONG;
+import static android.widget.Toast.makeText;
 
 public class InscriptionBarbier extends AppCompatActivity {
 
@@ -33,5 +38,10 @@ public class InscriptionBarbier extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void doRegister(View view){
+        makeText(getApplicationContext(), "vous etes enregistré", LENGTH_LONG).show();
+        Intent intent = new Intent(InscriptionBarbier.this, Jesuis.class);
+        startActivity(intent);
     }
 }

@@ -43,9 +43,9 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="Login"
         android:id="@+id/login"
-        android:onClick="goLogin"
+        android:onClick="doLogin"
         android:textColor="#ffffff"
         android:background="@drawable/rose"
         android:layout_below="@+id/mdp"
