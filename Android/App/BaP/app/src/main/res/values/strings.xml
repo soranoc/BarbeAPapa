@@ -6,4 +6,7 @@
     <string name="title_activity_index">Index</string>
     <string name="title_activity_rgister">Rgister</string>
     <string name="title_activity_login">Login</string>
+    <string name="title_activity_rdv">RDV</string>
+    <string name="title_activity_jesuis">Jesuis</string>
+    <string name="title_activity_inscription_barbier">InscriptionBarbier</string>
 </resources>

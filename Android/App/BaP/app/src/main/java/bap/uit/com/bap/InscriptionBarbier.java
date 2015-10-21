@@ -1,26 +1,22 @@
 package bap.uit.com.bap;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-import static android.widget.Toast.*;
-
-public class Register extends AppCompatActivity {
+public class InscriptionBarbier extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_inscription_barbier);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_register, menu);
+        getMenuInflater().inflate(R.menu.menu_inscription_barbier, menu);
         return true;
     }
 
@@ -37,10 +33,5 @@ public class Register extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-    public void doRegister(View view){
-        makeText(getApplicationContext(), "pouquoi tu clic batard ?", LENGTH_LONG).show();
-        Intent intent = new Intent(Register.this, Login.class);
-        startActivity(intent);
     }
 }
