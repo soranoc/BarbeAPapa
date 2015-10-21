@@ -7,18 +7,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class Login extends AppCompatActivity {
+import static android.widget.Toast.LENGTH_LONG;
+import static android.widget.Toast.makeText;
+
+public class InscriptionBarbier extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_inscription_barbier);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_login, menu);
+        getMenuInflater().inflate(R.menu.menu_inscription_barbier, menu);
         return true;
     }
 
@@ -36,8 +39,9 @@ public class Login extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    public void doLogin(View view){
-        Intent intent = new Intent(Login.this, Jesuis.class);
+    public void doRegister(View view){
+        makeText(getApplicationContext(), "vous etes enregistré", LENGTH_LONG).show();
+        Intent intent = new Intent(InscriptionBarbier.this, Jesuis.class);
         startActivity(intent);
     }
 }

@@ -7,18 +7,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class Login extends AppCompatActivity {
+public class Jesuis extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_jesuis);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_login, menu);
+        getMenuInflater().inflate(R.menu.menu_jesuis, menu);
         return true;
     }
 
@@ -36,8 +36,14 @@ public class Login extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    public void doLogin(View view){
-        Intent intent = new Intent(Login.this, Jesuis.class);
+
+    public void doBarbier(View view){
+        Intent intent = new Intent(Jesuis.this, InscriptionBarbier.class);
+        startActivity(intent);
+    }
+
+    public void doClient(View view){
+        Intent intent = new Intent(Jesuis.this, RDV.class);
         startActivity(intent);
     }
 }

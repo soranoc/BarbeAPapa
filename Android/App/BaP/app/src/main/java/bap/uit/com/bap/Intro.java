@@ -8,7 +8,7 @@ import android.view.MenuItem;
 
 public class Intro extends AppCompatActivity {
 
-    //lkjfslkjgksdhglksdh
+
     //71 47 47
     //210 98 191
     @Override
