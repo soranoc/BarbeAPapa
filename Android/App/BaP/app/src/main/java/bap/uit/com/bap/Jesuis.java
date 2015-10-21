@@ -36,14 +36,15 @@ public class Jesuis extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+//ajouter boolean estBarbier
 
     public void doBarbier(View view){
-        Intent intent = new Intent(Jesuis.this, InscriptionBarbier.class);
+        Intent intent = new Intent(Jesuis.this, IndexBarbier.class);
         startActivity(intent);
     }
 
     public void doClient(View view){
-        Intent intent = new Intent(Jesuis.this, RDV.class);
+        Intent intent = new Intent(Jesuis.this, IndexClient.class);
         startActivity(intent);
     }
 }

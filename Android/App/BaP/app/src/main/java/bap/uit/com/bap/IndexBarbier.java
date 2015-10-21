@@ -7,18 +7,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class Index extends AppCompatActivity {
+import static android.widget.Toast.LENGTH_LONG;
+import static android.widget.Toast.makeText;
+
+public class IndexBarbier extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_index);
+        setContentView(R.layout.activity_index_barbier);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_index, menu);
+        getMenuInflater().inflate(R.menu.menu_index_barbier, menu);
         return true;
     }
 
@@ -37,13 +41,13 @@ public class Index extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void doLogin(View view){
-        Intent intent = new Intent(Index.this, Login.class);
-        startActivity(intent);
-    }
     public void doRegister(View view){
-        Intent intent = new Intent(Index.this, Register.class);
-        startActivity(intent);
 
+            Intent intent2 = new Intent(IndexBarbier.this, InscriptionBarbier.class);
+            startActivity(intent2);
+    }
+    public void doLogin(View view){
+            Intent intent = new Intent(IndexBarbier.this, Login.class);
+            startActivity(intent);
     }
 }

@@ -9,4 +9,8 @@
     <string name="title_activity_rdv">RDV</string>
     <string name="title_activity_jesuis">Jesuis</string>
     <string name="title_activity_inscription_barbier">InscriptionBarbier</string>
+    <string name="title_activity_index_barbier">IndexBarbier</string>
+    <string name="title_activity_edt__barbier">EDT_Barbier</string>
+    <string name="title_activity_index_client">IndexClient</string>
+    <string name="title_activity_login_barbier">LoginBarbier</string>
 </resources>

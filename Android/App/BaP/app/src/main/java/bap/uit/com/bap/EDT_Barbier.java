@@ -1,24 +1,22 @@
 package bap.uit.com.bap;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-public class Login extends AppCompatActivity {
+public class EDT_Barbier extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_edt__barbier);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_login, menu);
+        getMenuInflater().inflate(R.menu.menu_edt__barbier, menu);
         return true;
     }
 
@@ -35,25 +33,5 @@ public class Login extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-    public void doLogin(View view){
-
-        //rajouter boolean si barbier dans le intent
-
-        //ne marche pas
-        /*
-        if(ESTBARBIER.equals("oui")) {
-            estBarbier = false;
-        }
-        if(!estBarbier){
-            Intent intent = new Intent(Login.this, RDV.class);
-            startActivity(intent);
-        } else {
-            Intent intent = new Intent(Login.this, EDT_Barbier.class);
-            startActivity(intent);
-        }
-        */
-        Intent intent = new Intent(Login.this, RDV.class);
-        startActivity(intent);
     }
 }

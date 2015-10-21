@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.TextView;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
@@ -81,7 +82,18 @@ public class RDV extends AppCompatActivity {
 
 
     public void doValide(View v){
-        makeText(getApplicationContext(),"Worth it",LENGTH_LONG).show();
+
+        TextView start;
+        start = (TextView) findViewById(R.id.nom_barbier);
+
+        TextView heure =null;
+        start = (TextView) findViewById(R.id.date);
+
+        TextView date =null;
+        start = (TextView) findViewById(R.id.heure);
+
+        //String tempo = "vous avez bien pris rdv avec le barbier :"+start.getText()+" à "+heure.getText()+" le "+date.getText();
+        makeText(getApplicationContext(),"WORTH IT",LENGTH_LONG).show();
         Intent intent = new Intent(RDV.this,Jesuis.class);
         startActivity(intent);
     }
