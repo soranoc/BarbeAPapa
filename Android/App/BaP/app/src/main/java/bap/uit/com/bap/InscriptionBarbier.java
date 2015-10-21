@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import static android.widget.Toast.LENGTH_LONG;
 import static android.widget.Toast.makeText;
@@ -40,8 +41,64 @@ public class InscriptionBarbier extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     public void doRegister(View view){
-        makeText(getApplicationContext(), "vous etes enregistré", LENGTH_LONG).show();
-        Intent intent = new Intent(InscriptionBarbier.this, Jesuis.class);
-        startActivity(intent);
+
+        String nomS, prenomS, mailS, mdpS, mdpconfS, telS, adresseS, villeS;
+        int codePS, prixMinS, prixMaxS;
+
+        TextView nom =null;
+        nom = (TextView) findViewById(R.id.nom);
+        nomS=nom.getText()+"";
+
+        TextView prenom =null;
+        prenom = (TextView) findViewById(R.id.prenom);
+        prenomS = prenom.getText()+"";
+
+        TextView mail =null;
+        mail = (TextView) findViewById(R.id.email);
+        mailS= mail.getText()+"";
+
+        TextView mdp =null;
+        mdp = (TextView) findViewById(R.id.mdp);
+        mdpS =mdp.getText()+"";
+
+        TextView mdpconf =null;
+        mdpconf = (TextView) findViewById(R.id.mdpconf);
+        mdpconfS = mdpconf.getText()+"";
+
+        TextView tel =null;
+        tel = (TextView) findViewById(R.id.tel);
+        telS=tel.getText()+"";
+
+        TextView adresse =null;
+        adresse = (TextView) findViewById(R.id.adresse);
+        adresseS= adresse.getText()+"";
+
+        TextView ville =null;
+        ville = (TextView) findViewById(R.id.ville);
+        villeS= ville.getText()+"";
+
+        TextView codeP =null;
+        codeP = (TextView) findViewById(R.id.codepostal);
+ // faire ici le code
+
+        TextView prixMin =null;
+        prixMin = (TextView) findViewById(R.id.prixmin);
+        //faire ici le code
+
+        TextView prixMax =null;
+        prixMax = (TextView) findViewById(R.id.prixmax);
+//faire ici le code
+
+/*
+        if(!mdpS.equals(mdpconfS)){
+            mdp.setText("");
+            mdpconf.setText("");
+            makeText(getApplicationContext(), "les mot de passe ne sont pas identiques", LENGTH_LONG).show();
+
+        }else{*/
+            makeText(getApplicationContext(), "vous etes enregistré", LENGTH_LONG).show();
+            Intent intent = new Intent(InscriptionBarbier.this, Jesuis.class);
+            startActivity(intent);
+        //}
     }
 }
