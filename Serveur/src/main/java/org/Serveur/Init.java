@@ -95,6 +95,13 @@ public class Init {
 				"La barbe, c'est barbant. Lol.",
 				"seville.facebook.com", null, null, null,
 				"Barbier", true));
+		bDao.insert(new Barber(-1, "http://www.taillersabarbe.fr/wp-content/uploads/2015/06/barbe-Nicolas-II.jpg", "Thomas", "Clavier", "Salu c moi",
+				"www.seville.fr", "37 rue paumée dans un coin", "32100",
+				"Marrant-City", "claviert@gmail.com", "claviert", "20/20/2020",
+				"06010003030", null,
+				"La barbe, c'est barbant. Lol.",
+				"seville.facebook.com", null, null, null,
+				"Barbier", true));
 
 		bDao.close();
 	}

@@ -14,7 +14,8 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">	
+<link rel="stylesheet" href="style.css">
 
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
@@ -25,9 +26,6 @@
 <%
 	BDD bdd = new BDD();
 	List<Barber> barbers = bdd.getBarbers();
-	int i=0;
-	/*int likes = Init.getInstance().getLikeDao().nbLikes(item.getIdt(), item.getType());
-	int views = Init.getInstance().getLikeDao().nbVues(item.getIdt(), item.getType());*/
 %>
 
 <body>
@@ -45,19 +43,17 @@
 
 	<div class="container">
 	<div class='page-header'>
-	<h1>Rendez-Vous <small>Barbe a Papa</small></h1></div>
-	<%
-		for(i=0; i<3 && i<barbers.size(); ++i){
-			%>
-			<div class="row">
+	<img id="header" src="http://img15.hostingpics.net/pics/270845pinkmoustache.png" />
+	<h1>Planifiez votre rendez-vous</h1></div>
+	<div class="row">
+	<%for(int i=0; i<3 && i<barbers.size(); ++i){%>
 				<div class="col-sm-6 col-md-4">
-					<div class="thumbnail">
+					<div id="thumbnailBarbier" class="thumbnail">
 					<form action='ServletRDV' method='post'>
-						<img src="<%out.println(barbers.get(i).getPhoto()); %>" alt="image" class="img-responsive">
-						<input type="hidden" name="barbier"  value="<%out.println(barbers.get(i).getEntreprise());%>">
+						<img id="thumbBarber" src="<%out.println(barbers.get(i).getPhoto());%>" class="img-responsive">
+						<input type="hidden" name="barbier" value="<%out.println(barbers.get(i).getEntreprise());%>">
 						<div class="caption">
-							<h3>
-							</h3>
+							<h3><%out.println(barbers.get(i).getEntreprise()); %></h3>
 								<h4>Horaires</h4>
 								<div class="btn-group" role="group" aria-label="Horaires">
   									<button type="submit" name="horaire" value="14h30" class="btn btn-default">14h30</button>
@@ -68,9 +64,9 @@
 						</form>
 					</div>
 				</div>
- <%} %>	
- 					
-			</div>
+ 	<%} %>					
+	</div>
+	
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$("#yes").click(function() {postLike(true);	});
