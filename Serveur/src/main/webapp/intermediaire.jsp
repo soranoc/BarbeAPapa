@@ -1,5 +1,6 @@
 <html>
 <head>
+<meta charset=UTF-8>
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -11,21 +12,25 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <script src="verification.js"></script>
-<title>BAP</title>
+<title>Barbu</title>
 </head>
 <body>
 	<br>
 	<br>
 	<br>
-	<img id="header" src="http://img15.hostingpics.net/pics/270845pinkmoustache.png">
+	<img id="header"
+		src="http://img15.hostingpics.net/pics/270845pinkmoustache.png">
 
 	<div class="row">
 		<div>
-			<h2 style="text-align: center" class="navbar-form">Se connecter</h2>
-			<form style="text-align: center" name="FormConnexion" class="navbar-form" action="choixrdv.jsp"/>
-				<br><input type="text" class="form-control" name="pseudo" placeholder="Login" required>
-				<br><br><input type="password" class="form-control" name="mot_de_passe" placeholder="Mot de passe" required>
-				<br><br><input type="submit" class="btn btn-default btn-lg" value="Valider">
+
+			<form style="text-align: center" name="FormConnexion"
+				class="navbar-form" action="formulaireclient.jsp" />
+			<br>
+			<br> <input type="submit" id="buttonBB"
+				class="btn btn-default btn-lg" value="Connexion"> <br>
+			<br> s<input type="submit" id="buttonBB"
+				class="btn btn-default btn-lg" value="Enregistrement">
 			</form>
 		</div>
 	</div>
