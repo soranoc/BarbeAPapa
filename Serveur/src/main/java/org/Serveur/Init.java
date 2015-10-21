@@ -1,19 +1,7 @@
-import mainpack.Items.Client;
-import mainpack.Items.Groupe;
-import mainpack.Items.Produit;
-import mainpack.Items.Promo;
-import mainpack.Items.Service;
+package org.Serveur;
 
 import org.skife.jdbi.v2.DBI;
 import org.sqlite.SQLiteDataSource;
-
-import com.adopt.bdd.ClientDao;
-import com.adopt.bdd.GroupeDao;
-import com.adopt.bdd.LikeDao;
-import com.adopt.bdd.ProduitDao;
-import com.adopt.bdd.PromoDao;
-import com.adopt.bdd.ServiceDao;
-import com.adopt.bdd.UtilisateurDao;
 
 public class Init {
 
@@ -29,7 +17,7 @@ public class Init {
 			instance = new Init();
 			instance.initInit();
 			instance.initTables();
-			//instance.initExemples();
+			// instance.initExemples();
 		}
 		return instance;
 	}
@@ -45,124 +33,69 @@ public class Init {
 		return dbi.open(ClientDao.class);
 	}
 
-	public UtilisateurDao initUtilisateurDao() {
-		return dbi.open(UtilisateurDao.class);
+	public ClientDao getClientDao() {
+		return initClientDao();
 	}
 
-	public UtilisateurDao getUtilisateurDao() {
-		return initUtilisateurDao();
+	public BarberDao initBarberDao() {
+		return dbi.open(BarberDao.class);
+	}
+
+	public BarberDao getBarberDao() {
+		return initBarberDao();
 	}
 
 	private void initTables() {
-		ClientDao clientDao = getClientDao();
-		clientDao.dropClientTable();
-		clientDao.createClientTable();
-		clientDao.close();
+		ClientDao cDao = getClientDao();
+		cDao.dropClientTable();
+		cDao.createClientTable();
+		cDao.close();
 
-		getProduitDao().dropProductTable();
-		getProduitDao().createProductTable();
-
-		getServiceDao().dropServiceTable();
-		getServiceDao().createServiceTable();
-
-		getPromoDao().dropPromoTable();
-		getPromoDao().createPromoTable();
-
-		getLikeDao().dropLikeTable();
-		getLikeDao().createLikeTable();
-
-		getUtilisateurDao().dropUtilisateurTable();
-		getUtilisateurDao().createUtilisateurTable();
-
-		GroupeDao groupeDao = getGroupeDao();
-		groupeDao.dropGroupeTable();
-		groupeDao.createGroupeTable();
-		groupeDao.close();
+		BarberDao bDao = getBarberDao();
+		bDao.dropBarberTable();
+		bDao.createBarberTable();
+		bDao.close();
 	}
 
-	/*public void initExemples() {
+	public void initExemples() {
 		exempleClient();
-		exempleProduit();
-		exemplePromo();
-		exempleService();
-		exempleGroupe();
+		exempleBarber();
 	}
 
 	private void exempleClient() {
-		ClientDao cd = getClientDao();
-		cd.insert(new Client(-1, null, "Fabian", "AVELIN", "Adopt-1-com", null,
+		ClientDao cDao = getClientDao();
+
+		cDao.insert(new Client(-1, null, "Fabian", "Avelin",
 				"24 rue du grand poney", "59000", "Lille", "avelinf@gmail.com",
-				"avelinf", "01/06/1995", "0612141518", "0404040404",
-				"Etudiant", "Informatique", "J'aime beaucoup ce que l'on fait avec le DAO",
-				"http://facebook/avelinf", "http://twitter/avelinf", null,
-				null, "service", "dev", true));
-		cd.insert(new Client(-1, null, "Clément", "SORANO", "Adopt-1-com", null,
-				"33 rue du Maréchal Citron", "59000", "Lille", "soranoc@gmail.com",
-				"soranoc", "14/06/1991", "0633475874", "0404040404",
-				"Etudiant", "Informatique", "C'est le bootstrap qui me donne du courage",
-				"http://facebook/soranoc", "http://twitter/soranoc", null,
-				null, "service", "dev", true));
-		cd.insert(new Client(-1, null, "Théo", "ANGE", "Adopt-1-com", null,
-				"5 rue du dindon", "59000", "Lille", "anget@gmail.com",
-				"anget", "31/07/1995", "0606060606", "0404040404",
-				"Etudiant", "Informatique", "Ce que j'aime dans l'informatique, c'est le DAO",
-				"http://facebook/anget", "http://twitter/anget", null,
-				null, "service", "dev", true));
-		cd.insert(new Client(-1, null, "Bourbie", "Rito", "Bourbie & co", null,
-				"18 rue du pingouin", "59000", "Lille", "bourbie@gmail.com",
-				"bourbue", "01/01/2015", "0606060606", "0404040404",
-				"Bourbiste", "Bourbe", "Blblblblblb",
-				"http://facebourbe/bourbie", "http://twitter/bourbie", null,
-				null, "service", "talent", true));
-		cd.close();
+				"avelinf", "01/06/1995", "0612141518"));
+		cDao.insert(new Client(-1, null, "ClÃ©ment", "Sorano",
+				"33 rue du MarÃ©chal Citron", "59000", "Lille",
+				"soranoc@gmail.com", "soranoc", "14/06/1991", "0642424242"));
+		cDao.insert(new Client(-1, null, "Max", "Cobol", "2 rue du gfi",
+				"83000", "Toulon", "cobolm@gmail.com", "cobolm", "12/12/1992",
+				"0610001000"));
+
+		cDao.close();
 	}
 
-	private void exempleProduit() {
-		ProduitDao pd = getProduitDao();
-		pd.insert(new Produit(-1, "Chaise", null, "18EUR",
-				"Jolie chaise rouge de jardin", 1, 1, false, "Mobilier"));
-		pd.insert(new Produit(-1, "Bureau", null, "50EUR",
-				"Joli bureau rouge de jardin", 1, 0, false, "Mobilier"));
-		pd.insert(new Produit(-1, "Lampe", null, "10EUR",
-				"Jolie lampe rouge de jardin", 1, 0, false, "Mobilier"));
-		pd.insert(new Produit(-1, "Jambon", null, "20EUR",
-				"Joli jambon rouge de jardin", 1, 0, false, "Mobilier"));
-		pd.insert(new Produit(-1, "Poulet", null, "1000EUR",
-				"Jolie poulet rouge de compagnie", 1, 0, false, "Animaux"));
-		pd.insert(new Produit(-1, "Poney", null, "273EUR",
-				"Joli poney disco à paillettes de jardin", 1, 0, false,
-				"Animaux"));
-		pd.insert(new Produit(-1, "Pingouin", null, "10EUR",
-				"Jolie pingouin bleu de cuisine", 1, 0, false, "Ustensiles"));
-		pd.insert(new Produit(-1, "Paillon", null, "5EUR",
-				"Joli paillon vert de compétition", 1, 0, false, "Mobilier"));
-		pd.close();
-	}
+	private void exempleBarber() {
+		BarberDao bDao = getBarberDao();
 
-	private void exempleService() {
-		ServiceDao sd = getServiceDao();
-		sd.insert(new Service(-1, "Massage", null, "40EUR",
-				"Massage plutot sympathique", 1, 2, false, "Bien-être"));
-		sd.insert(new Service(-1, "Ménage", null, "20EUR",
-				"Ménage plutot sympathique", 1, 0, false, "Entretien"));
-		sd.insert(new Service(-1, "Restauration", null, "100EUR",
-				"Resto plutot sympathique", 1, 0, false, "Nourriture"));
-		sd.close();
-	}
+		bDao.insert(new Barber(-1, null, "Axel", "Monnier", "Mousta'shop",
+				"www.moustashop.fr", "26 Avenue du colonel Moutarde", "12121",
+				"Lelle", "monniera@gmail.com", "monniera", "17/01/1994",
+				"0606060606", null,
+				"J'aime les grosses moustaches bien stylÃ©es.",
+				"moustashop.facebook.com", null, null, null,
+				"Coiffeur/Barbier", true));
+		bDao.insert(new Barber(-1, null, "Thomas", "Clavier", "SÃ©ville",
+				"www.seville.fr", "37 rue paumÃ©e dans un coin", "32100",
+				"Marrant-City", "claviert@gmail.com", "claviert", "20/20/2020",
+				"06010003030", null,
+				"La barbe, c'est barbant. Lol.",
+				"seville.facebook.com", null, null, null,
+				"Barbier", true));
 
-	private void exemplePromo() {
-		PromoDao pd = getPromoDao();
-		pd.insert(new Promo(-1, 1, -1, "14/06/2015", "12EUR",
-				"Remise exceptionnelle sur les chaises de jardin"));
-		pd.insert(new Promo(-1, -1, 1, "14/06/2015", "4EUR",
-				"Remise exceptionnelle sur les massages de jardin"));
-		pd.close();
+		bDao.close();
 	}
-
-	private void exempleGroupe() {
-		GroupeDao gd = getGroupeDao();
-		gd.insert(new Groupe(-1, 2, -1, 10, "35EUR",
-				"Remise sur les bureaux si vous venez nombreux!"));
-		gd.close();
-	}*/
 }

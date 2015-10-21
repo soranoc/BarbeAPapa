@@ -1,10 +1,4 @@
-package mainpack.Items;
-
-/**
- * 
- * @author jourdail La classe Client permet de créer des clients ainsi que leur
- *         attributs. Les getters permettent de récupérer ces derniers.
- */
+package org.Serveur;
 
 public class Client extends Item {
 
@@ -29,7 +23,7 @@ public class Client extends Item {
 	 * @param prenom
 	 *            du client
 	 * @param entite
-	 *            de l'entreprise ou du commerçant
+	 *            de l'entreprise ou du commerï¿½ant
 	 */
 	
 	public Client(){}
@@ -55,7 +49,7 @@ public class Client extends Item {
 	}
 
 	public String renderHTML() {
-		String res = "à faire";
+		String res = "ï¿½ faire";
 		return res;
 	}
 
@@ -115,7 +109,7 @@ public class Client extends Item {
 		this.tel = tel;
 	}
 
-	public String getMdp() { // TODO : à enregistrer crypté
+	public String getMdp() { // TODO : ï¿½ enregistrer cryptï¿½
 		return mdp;
 	}
 
@@ -144,7 +138,7 @@ public class Client extends Item {
 		return "<span class='glyphicon glyphicon-user'></span> "+prenom+" "+nom;
 	}
 
-	///Renvoie le nom de la table dans laquelle doit être stockée l'Item
+	///Renvoie le nom de la table dans laquelle doit ï¿½tre stockï¿½e l'Item
 	@Override
 	public String getType() {
 		return "clients";

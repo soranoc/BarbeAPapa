@@ -1,12 +1,6 @@
-package mainpack.Items;
+package org.Serveur;
 
-/**
- * 
- * @author jourdail La classe Client permet de créer des clients ainsi que leur
- *         attributs. Les getters permettent de récupérer ces derniers.
- */
-
-public class Client extends Item {
+public class Barber extends Item {
 
 	private String photo;
 	private String nom;
@@ -21,7 +15,7 @@ public class Client extends Item {
 	private String dateNaiss;
 	private String tel;
 	private String fax;
-	private String description; // Comment voyez-vous votre métier?
+	private String description; // Comment voyez-vous votre mï¿½tier?
 	private String facebook;
 	private String twitter;
 	private String linkedIn;
@@ -39,12 +33,12 @@ public class Client extends Item {
 	 * @param prenom
 	 *            du client
 	 * @param entite
-	 *            de l'entreprise ou du commerçant
+	 *            de l'entreprise ou du commerï¿½ant
 	 */
 	
-	public Client(){}
+	public Barber(){}
 
-	public Client(int idt, String photo, String prenom, String nom, String entreprise, String site, String adresse, String codePostal, String ville,
+	public Barber(int idt, String photo, String prenom, String nom, String entreprise, String site, String adresse, String codePostal, String ville,
 			String mail, String mdp, String dateNaiss, String tel, String fax, String description, String facebook,
 			String twitter, String linkedIn, String googlePlus, String typeDePrestation, boolean valide) {
 		super(idt);
@@ -76,7 +70,7 @@ public class Client extends Item {
 	}
 
 	public String renderHTML() {
-		String res = "à faire";
+		String res = "ï¿½ faire";
 		return res;
 	}
 
@@ -105,7 +99,7 @@ public class Client extends Item {
 	}
 
 	public boolean equals(Object u) {
-		return nom.equals(((Client) u).nom);
+		return nom.equals(((Barber) u).nom);
 	}
 
 	public String getAdresse() {
@@ -188,7 +182,7 @@ public class Client extends Item {
 		this.linkedIn = linkedIn;
 	}
 
-	public String getMdp() { // TODO : à enregistrer crypté
+	public String getMdp() { // TODO : ï¿½ enregistrer cryptï¿½
 		return mdp;
 	}
 
@@ -241,7 +235,7 @@ public class Client extends Item {
 		return "<span class='glyphicon glyphicon-user'></span> "+prenom+" "+nom;
 	}
 
-	///Renvoie le nom de la table dans laquelle doit être stockée l'Item
+	///Renvoie le nom de la table dans laquelle doit ï¿½tre stockï¿½e l'Item
 	@Override
 	public String getType() {
 		return "barbers";

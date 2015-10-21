@@ -1,7 +1,8 @@
-package com.adopt.bdd;
+package org.Serveur;
+
 import java.util.List;
 
-import mainpack.Items.Client;
+import org.Serveur.Barber;
 
 import org.skife.jdbi.v2.sqlobject.Bind;
 import org.skife.jdbi.v2.sqlobject.BindBean;

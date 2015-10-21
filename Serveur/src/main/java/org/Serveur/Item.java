@@ -1,4 +1,4 @@
-package mainpack.Items;
+package org.Serveur;
 
 abstract public class Item {
 	int idt;
