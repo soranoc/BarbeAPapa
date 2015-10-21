@@ -1,44 +1,22 @@
 package bap.uit.com.bap;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class Intro extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
-    //lkjfslkjgksdhglksdh
-    //71 47 47
-    //210 98 191
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_intro);
-        Thread thread=  new Thread(){
-            @Override
-            public void run(){
-                try {
-                    synchronized(this){
-                        wait(3500);
-                        Intent intent = new Intent(Intro.this, Index.class);
-                        startActivity(intent);
-                    }
-                }
-                catch(InterruptedException ex){
-                }
-
-                // TODO
-            }
-        };
-
-        thread.start();
+        setContentView(R.layout.activity_login);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_intro, menu);
+        getMenuInflater().inflate(R.menu.menu_login, menu);
         return true;
     }
 
