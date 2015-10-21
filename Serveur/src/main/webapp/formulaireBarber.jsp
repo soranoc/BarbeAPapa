@@ -29,7 +29,7 @@
 		<div class='page-header col-sm-offset-1'>
 			<h1>Formulaire Inscription <small>Je suis un barbier</small></h1>
 		</div>
-		<form method='post' action='Formulaire2' enctype='multipart/form-data' action='fup.cgi'>
+		<form method='post' action='ServletRegisterBarber' enctype='multipart/form-data' action='fup.cgi'>
 
 			<div class='row'>
 				<div class='col-md-3 col-sm-offset-1'>
