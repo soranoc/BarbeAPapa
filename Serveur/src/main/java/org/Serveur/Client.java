@@ -22,7 +22,7 @@ public class Client extends Item {
 	 *            du client
 	 * @param prenom
 	 *            du client
-	 * @param entite
+	 * @param entreprise
 	 *            de l'entreprise ou du commer�ant
 	 */
 	
