@@ -1,0 +1,24 @@
+!SESSION 2015-10-21 09:27:04.652 -----------------------------------------------
+eclipse.buildId=debbuild
+java.version=1.7.0_79
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Command-line arguments:  -data /home/infoetu/soranoc/agile/BarbeAPapa -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.core.net 1 0 2015-10-21 09:27:29.083
+!MESSAGE System property http.proxyHost is not set but should be cache.univ-lille1.fr.
+
+!ENTRY org.eclipse.core.net 1 0 2015-10-21 09:27:29.092
+!MESSAGE System property http.proxyPort is not set but should be 3128.
+
+!ENTRY org.eclipse.core.net 1 0 2015-10-21 09:27:29.097
+!MESSAGE System property https.proxyHost is not set but should be cache.univ-lille1.fr.
+
+!ENTRY org.eclipse.core.net 1 0 2015-10-21 09:27:29.101
+!MESSAGE System property https.proxyPort is not set but should be 3128.
+
+!ENTRY org.eclipse.core.net 1 0 2015-10-21 09:27:29.107
+!MESSAGE System property https.proxyHost is not set but should be cache.univ-lille1.fr.
+
+!ENTRY org.eclipse.core.net 1 0 2015-10-21 09:27:29.111
+!MESSAGE System property https.proxyPort is not set but should be 3128.
