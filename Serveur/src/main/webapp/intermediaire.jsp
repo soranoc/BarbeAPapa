@@ -18,23 +18,23 @@
 	<br>
 	<br>
 	<br>
-	<img id="header"
-		src="http://img15.hostingpics.net/pics/270845pinkmoustache.png">
-
+	<img id="header" src="http://img15.hostingpics.net/pics/270845pinkmoustache.png" />
+	</a>">
 	<div class="row">
 		<div>
-
-			<form style="text-align: center" name="FormConnexion"
-				class="navbar-form" action="formulaireclient.jsp" />
-			<br>
-			<br> <input type="submit" id="buttonBB"
+			<form style="text-align: center" name="FormBConnexion"
+				class="navbar-form" action="connexion.jsp" />
+			<br><br>
+			<input type="submit" id="buttonBB"
 				class="btn btn-default btn-lg" value="Connexion"> <br>
-			<br> s<input type="submit" id="buttonBB"
-				class="btn btn-default btn-lg" value="Enregistrement">
+			</form>
+			<form style="text-align: center" name="FormBInscription"
+				class="navbar-form" action="formulaireClient.jsp" />
+			<br>
+			<input type="submit" id="buttonBB"
+				class="btn btn-default btn-lg" value="Inscription"> <br>
 			</form>
 		</div>
 	</div>
-
 </body>
-
 </html>

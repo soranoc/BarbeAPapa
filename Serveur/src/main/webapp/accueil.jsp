@@ -22,8 +22,8 @@
 	</a>">
 	<div class="row">
 		<div>
-			<form style="text-align: center" name="FormConnexion"
-				class="navbar-form" action="connexion.jsp" />
+			<form style="text-align: center" name="FormAccueil"
+				class="navbar-form" action="intermediaire.jsp" />
 			<br><br>
 			<input type="submit" id="buttonBB"
 				class="btn btn-default btn-lg" value="Je suis un barbier"> <br>
