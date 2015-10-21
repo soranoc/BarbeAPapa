@@ -1,3 +1,8 @@
+<%@ page import="java.util.List"%>
+<%@ page import="org.Serveur.BDD"%>
+<%@ page import="org.Serveur.Barber"%>
+
+
 <html>
 
 <head>
@@ -18,8 +23,9 @@
 </head>
 
 <%
-	//BDD bdd = new BDD();
-	//Item item = bdd.getRandomItem();
+	BDD bdd = new BDD();
+	List<Barber> barbers = bdd.getBarbers();
+	int i=0;
 	/*int likes = Init.getInstance().getLikeDao().nbLikes(item.getIdt(), item.getType());
 	int views = Init.getInstance().getLikeDao().nbVues(item.getIdt(), item.getType());*/
 %>
@@ -40,72 +46,31 @@
 	<div class="container">
 	<div class='page-header'>
 	<h1>Rendez-Vous <small>Barbe a Papa</small></h1></div>
+	<%
+		for(i=0; i<3 && i<barbers.size(); ++i){
+			%>
 			<div class="row">
 				<div class="col-sm-6 col-md-4">
 					<div class="thumbnail">
 					<form action='ServletRDV' method='post'>
-						<img src="http://img11.hostingpics.net/pics/397171thumbnail.png" alt="image">
-						<input type="hidden" name="barbier"  value="Mousta'shop">
+						<img src="<%out.println(barbers.get(i).getPhoto()); %>" alt="image" class="img-responsive">
+						<input type="hidden" name="barbier"  value="<%out.println(barbers.get(i).getEntreprise());%>">
 						<div class="caption">
 							<h3>
-								<%out.println("Mousta'shop");%>
 							</h3>
-							<p>
 								<h4>Horaires</h4>
 								<div class="btn-group" role="group" aria-label="Horaires">
   									<button type="submit" name="horaire" value="14h30" class="btn btn-default">14h30</button>
   									<button type="submit" name="horaire" value="15h30" class="btn btn-default">15h30</button>
   									<button type="submit" name="horaire" value="16h30" class="btn btn-default">16h30</button>
 								</div>
-							</p>
-						</div>
+							</div>
 						</form>
 					</div>
 				</div>
-				<div class="col-sm-6 col-md-4">
-					<div class="thumbnail">
-					<form action='ServletRDV' method='post'>
-						<img src="http://img11.hostingpics.net/pics/397171thumbnail.png" alt="image">
-						<input type="hidden" name="barbier"  value="Seville">
-						<div class="caption">
-							<h3>
-								<%out.println("Seville");%>
-							</h3>
-							<p>
-								<h4>Horaires</h4>
-								<div class="btn-group" role="group" aria-label="Horaires">
-  									<button type="submit" name="horaire" value="14h30" class="btn btn-default">14h30</button>
-  									<button type="submit" name="horaire" value="15h30" class="btn btn-default">15h30</button>
-  									<button type="submit" name="horaire" value="16h30" class="btn btn-default">16h30</button>
-								</div>
-							</p>
-						</div>
-						</form>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-4">
-					<div class="thumbnail">
-					<form action='ServletRDV' method='post'>
-						<img src="http://img11.hostingpics.net/pics/397171thumbnail.png" alt="image">
-						<input type="hidden" name="barbier"  value='Barbamusant'>
-						<div class="caption">
-							<h3>
-								<%out.println("Barbamusant");%>
-							</h3>
-							<p>
-								<h4>Horaires</h4>
-								<div class="btn-group" role="group" aria-label="Horaires">
-  									<button type="submit" name="horaire" value="14h30" class="btn btn-default">14h30</button>
-  									<button type="submit" name="horaire" value="15h30" class="btn btn-default">15h30</button>
-  									<button type="submit" name="horaire" value="16h30" class="btn btn-default">16h30</button>
-								</div>
-							</p>
-						</div>
-					</form>
-				</div>
+ <%} %>	
+ 					
 			</div>
-		</div>
-	</div>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$("#yes").click(function() {postLike(true);	});
