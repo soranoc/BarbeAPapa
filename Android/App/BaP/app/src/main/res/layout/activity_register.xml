@@ -22,7 +22,7 @@
         android:textColorHint="#ffffff"
         android:singleLine="false"
         android:shadowColor="#ffffff"
-         />
+        android:linksClickable="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -72,7 +72,6 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/adresse"
         android:layout_below="@+id/mdpconf"

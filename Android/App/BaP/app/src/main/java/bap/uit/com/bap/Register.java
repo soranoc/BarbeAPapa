@@ -1,9 +1,13 @@
 package bap.uit.com.bap;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import static android.widget.Toast.*;
 
 public class Register extends AppCompatActivity {
 
@@ -33,5 +37,10 @@ public class Register extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void doRegister(View view){
+        makeText(getApplicationContext(), "pouquoi tu clic batard ?", LENGTH_LONG).show();
+        Intent intent = new Intent(Register.this, Login.class);
+        startActivity(intent);
     }
 }
