@@ -30,7 +30,7 @@
 			</form>
 			<%if (request.getParameter("type").equals("barbier")){%>
 			<form style="text-align: center" name="FormBInscription"
-				class="navbar-form" action="formulaireClient.jsp" />
+				class="navbar-form" action="formulaireBarber.jsp" />
 			<br>
 			<input type="submit" id="buttonBB"
 				class="btn btn-default btn-lg" value="Inscription"> <br>
