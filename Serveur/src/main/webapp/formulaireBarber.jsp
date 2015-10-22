@@ -286,7 +286,7 @@
 			});
 		});
 		function getVilles(cp) {
-			$.getJSON("v2/cpdb/" + cp, function(data) {
+			$.getJSON("v1/cpdb/" + cp, function(data) {
 				var html = "";
 				for ( var index = 0; index < data.length; ++index) {
 					html = html + "<option value='"+data[index].ville+"'>"

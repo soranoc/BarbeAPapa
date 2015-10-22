@@ -2,11 +2,8 @@
 <%@ page import="org.Serveur.BDD"%>
 <%@ page import="org.Serveur.Barber"%>
 
-
 <html>
-
 <head>
-
 <meta charset=UTF-8>
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -82,34 +79,4 @@
  	<%} %>					
 	</div>
     </div>
-	
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$("#yes").click(function() {postLike(true);	});
-			$("#no").click(function() {postLike(false);	});
-		});
-		function postLike(aime) {
-			$.ajax({
-				type : 'POST',
-				contentType : 'application/json',
-				url : "v2/like/",
-				dataType : "json",
-				async : false,
-				data : JSON.stringify({
-					"userid" : 1,
-					"itemid" : $("#iditem").val().trim(),
-					"itemType" : $("#itemtype").val().trim(),
-					"aime": aime
-				}),
-				success : function(data, textStatus, jqXHR) {
-					console.log(data);
-					$(location).attr('href',"/matching.jsp");
-				},
-				error : function(jqXHR, textStatus, errorThrown) {
-					alert('postUser error: ' + textStatus);
-				}
-			});
-			
-		}
-	</script>
 </body>

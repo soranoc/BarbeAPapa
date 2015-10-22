@@ -1,7 +1,6 @@
 package org.Serveur;
 
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
@@ -27,7 +26,6 @@ public class ServletRDV extends HttpServlet {
 		Barber b = Init.getInstance().getBarberDao().getByMail(mail);
 		idBarber = b.getIdt();
 		String barber = req.getParameter("barbier");
-		
 		String horaire = req.getParameter("horaire");
 		
 		out.println("<html><head>");
