@@ -1,0 +1,6 @@
+conteneur:
+    image: soranoc/barbeapapa
+    ports:
+    - ip: 46.105.59.176
+      host_port: 80
+      container_port: 8080
