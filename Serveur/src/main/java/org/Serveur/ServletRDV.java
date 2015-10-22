@@ -32,12 +32,14 @@ public class ServletRDV extends HttpServlet {
 		out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css\">");
 		out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js\"></script>");
 		out.println("<br><br><br><title>Rendez-vous pris</title>");
+		out.println("<link rel=\"stylesheet\" href=\"style.css\">");
 		out.println("</head>");
 
 		// Debut du corps de la page
 		out.println("<body><div class='container'>");
-		out.println("<h1 class='text-center'>Rendez-vous pris</h1>");
-		out.println("<br><br><h2 class='text-center'>Chez "+barber+", à "+horaire+"</h2>");
+		out.println("<img id=\"header\" src=\"http://img15.hostingpics.net/pics/270845pinkmoustache.png\"/>");
+		out.println("<br><h1 class='text-center'>Rendez-vous pris</h1>");
+		out.println("<br><h2 class='text-center'>Chez "+barber+", à "+horaire+"</h2>");
 		out.println("</div></body></html>");
 	}
 }
