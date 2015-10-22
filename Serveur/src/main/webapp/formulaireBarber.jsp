@@ -189,7 +189,7 @@
 						</div>
 						<div class="radio disabled">
 							<label> <input type="radio" name="prestation"
-								id="optionsRadios3" value="Coiffeur-Barbier"> Coiffeur-Barbier
+								id="optionsRadios3" value="Barbier-Coiffeur"> Barbier-Coiffeur
 							</label>
 						</div>
 					</div>

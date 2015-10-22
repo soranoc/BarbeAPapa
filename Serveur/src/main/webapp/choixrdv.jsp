@@ -44,7 +44,21 @@
 	<div class="container">
 	<div class='page-header'>
 	<img id="header" src="http://img15.hostingpics.net/pics/270845pinkmoustache.png" />
-	<h1>Planifiez votre rendez-vous</h1></div>
+        <div class = "row">
+
+        <form class="navbar-form navbar" role="search">
+            <h1>Planifiez votre rendez-vous 
+            <div class="form-group">
+            <input type="text" class="col-sm-2 push-col-md-1 form-control" placeholder="Ville">
+        </div>
+                <button type="submit" class="btn btn-default">Rechercher</button>   
+            </h1>     
+
+        </form>
+        </div>
+    </div>
+    </div>
+    <div class='container'>
 	<div class="row">
 	<%for(int i=0; i<3 && i<barbers.size(); ++i){%>
 				<div class="col-sm-6 col-md-4">
@@ -52,6 +66,7 @@
 					<form action='ServletRDV' method='post'>
 						<img id="thumbBarber" src="<%out.println(barbers.get(i).getPhoto());%>" class="img-responsive">
 						<input type="hidden" name="barbier" value="<%out.println(barbers.get(i).getEntreprise());%>">
+						<input type="hidden" name="mail" value="<%out.println(barbers.get(i).getMail());%>">
 						<div class="caption">
 							<h3><%out.println(barbers.get(i).getEntreprise()); %></h3>
 								<h4>Horaires</h4>
@@ -66,6 +81,7 @@
 				</div>
  	<%} %>					
 	</div>
+    </div>
 	
 	<script type="text/javascript">
 		$(document).ready(function() {

@@ -20,7 +20,14 @@ public class ServletRDV extends HttpServlet {
 		
 		PrintWriter out = res.getWriter();
 		res.setContentType("text/html");
+		int idClient = 1;
+		int idBarber = -1;
+		String mail = req.getParameter("mail");
+		mail = mail.substring(0, mail.length()-2);
+		Barber b = Init.getInstance().getBarberDao().getByMail(mail);
+		idBarber = b.getIdt();
 		String barber = req.getParameter("barbier");
+		
 		String horaire = req.getParameter("horaire");
 		
 		out.println("<html><head>");
@@ -41,5 +48,6 @@ public class ServletRDV extends HttpServlet {
 		out.println("<br><h1 class='text-center'>Rendez-vous pris</h1>");
 		out.println("<br><h2 class='text-center'>Chez "+barber+", à "+horaire+"</h2>");
 		out.println("</div></body></html>");
+		Init.getInstance().getRdvDao().insert(new Rdv(-1, idClient, idBarber, "DATE", horaire));
 	}
 }

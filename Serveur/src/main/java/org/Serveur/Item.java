@@ -17,10 +17,4 @@ abstract public class Item {
 	public void setIdt(int id){
 		this.idt=id;
 	}
-	
-	abstract public String getTitle();
-	
-	abstract public String getType();
-	
-	public abstract String renderHTML();
 }

@@ -25,12 +25,38 @@
 %>
 
 <body>
+	<!--  Navbar possible
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="container-fluid">
+				<div class="collapse navbar-collapse col-md-2 col-md-push-1"
+					id="bs-example-navbar-collapse-1">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+						aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="accueil.jsp">
+						<span class="glyphicon glyphicon-home" aria-hidden="true"></span> Accueil</a>
+					<a class="navbar-brand" href="#">
+						<span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profil</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+<br><br><br>-->
 	<div class="container">
 		<div class='page-header col-sm-offset-1'>
-			<h1>Formulaire Inscription <small>Je suis un barbu</small>          
-			<img id="moustache" src="http://img4.hostingpics.net/pics/366706moustache.png"></h1>
+			<h1>
+				Formulaire Inscription <small>Je suis un barbu</small> <img
+					id="moustache"
+					src="http://img4.hostingpics.net/pics/366706moustache.png">
+			</h1>
 		</div>
-		<form method='post' action='Formulaire2' enctype='multipart/form-data' action='fup.cgi'>
+		<form method='post' action='Formulaire2' enctype='multipart/form-data'
+			action='fup.cgi'>
 
 			<div class='row'>
 				<div class='col-md-3 col-sm-offset-1'>
@@ -54,8 +80,8 @@
 				<div class='col-md-2'>
 					<div
 						class='form-group <%out.println(request.getAttribute("warning"));%>'>
-						<label for='date'>Date de Naissance : </label> <input
-							type='date' class='form-control'
+						<label for='date'>Date de Naissance : </label> <input type='date'
+							class='form-control'
 							value="<%out.println(ServletHelper.getValue("date", params));%>"
 							name='date' required>
 					</div>
@@ -67,8 +93,8 @@
 				<div class='col-md-4 col-sm-offset-1'>
 					<div
 						class='form-group <%out.println(request.getAttribute("warning"));%>'>
-						<label for='nom'>Photo : </label><input type='url'
-							value='' name='photo' placeholder='http://ma-photo.jpg' required
+						<label for='nom'>Photo : </label><input type='url' value=''
+							name='photo' placeholder='http://ma-photo.jpg' required
 							class='form-control'>
 					</div>
 				</div>
@@ -79,7 +105,7 @@
 				</div>
 			</div>
 
-			
+
 			<div class='row'>
 				<div class='col-md-8 col-sm-offset-1'>
 					<div class='form-group'>
@@ -103,10 +129,12 @@
 
 				<div class='col-md-4'>
 					<div class='form-group'>
-						<label for='ville'>Ville : </label> <select
-							class='form-control' id='ville' name='ville' required>
-							<option value="<%out.println(ServletHelper.getValue("ville", params));%>">
-							<%out.println(ServletHelper.getValue("ville", params));%></option>
+						<label for='ville'>Ville : </label> <select class='form-control'
+							id='ville' name='ville' required>
+							<option
+								value="<%out.println(ServletHelper.getValue("ville", params));%>">
+								<%out.println(ServletHelper.getValue("ville", params));%>
+							</option>
 						</select>
 					</div>
 				</div>
@@ -125,9 +153,8 @@
 				<div class='col-md-4'>
 					<div
 						class='form-group <%out.println(request.getAttribute("emailconf"));%>'>
-						<label for='mail2'>Confirmer E-Mail : </label> <input
-							type='email' class='form-control'
-							placeholder='thierry.dupont@gmail.com'
+						<label for='mail2'>Confirmer E-Mail : </label> <input type='email'
+							class='form-control' placeholder='thierry.dupont@gmail.com'
 							value="<%out.println(ServletHelper.getValue("mail2", params));%>"
 							name='mail2' required>
 					</div>
@@ -142,9 +169,9 @@
 							value="<%out.println(ServletHelper.getValue("tel", params));%>"
 							name='tel' required>
 					</div>
-				</div>			
-			</div>			
-			
+				</div>
+			</div>
+
 			<div class='row'>
 				<div class='col-md-4 col-sm-offset-1'>
 					<div class='form-group'>
@@ -181,7 +208,8 @@
 			$.getJSON("v2/cpdb/" + cp, function(data) {
 				var html = "";
 				for ( var index = 0; index < data.length; ++index) {
-					html = html + "<option value='"+data[index].ville+"'>" + data[index].ville + "</option>";
+					html = html + "<option value='"+data[index].ville+"'>"
+							+ data[index].ville + "</option>";
 				}
 				$("#ville").html(html);
 			})
