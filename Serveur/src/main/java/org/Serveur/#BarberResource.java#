@@ -1,0 +1,88 @@
+package fr.iutinfo.api;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.DefaultValue;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
+
+@Path("/barber")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
+public class BarberResource {
+    private static Map<Integer, Barber> barbers = new HashMap<>();
+    
+    @POST
+    public User createBarber(Barber barber) {
+	int idt = barbers.size();
+	barber.setIdt(idt+1);
+	barbers.put(barber.getIdt(), barber);
+	return barber;
+    }
+    
+    @DELETE
+    @Path("{idt}")
+    public Response deleteBarber(@PathParam("idt") Integer idt) {
+	if (barbers.containsKey(idt)) {
+	    return Response.accepted().status(Status.ACCEPTED).build();
+	}
+	return Response.accepted().status(Status.NOT_FOUND).build();
+    }
+    
+    protected Barber find(String name) {
+	Barber out = null;
+	for (Barber barber : barbers.values()) {
+	    if (barber.getNom().equals(name)) {
+		return barber;
+	    }
+	}
+	return out;
+    }
+    protected Barber find(int idt) {
+	return barbers.get(idt);
+    }
+	
+    @PUT
+    @Path("{idt}")
+    public Response updateBarber(@PathParam("idt") int idt, 
+			Barber barber) {
+	Barber oldBarber = find(idt);
+	System.out.println("Should update barber with idt: "+idt
+			   +" ("+oldBarber+") to " +barber);
+	if (barber == null) {
+	    throw new WebApplicationException(404);
+	}
+	oldBarber.setNom(barber.getNom());
+	return Response.status(200).entity(oldBarber).build();
+    }
+    
+    @GET
+    @Path("/{name}")
+	public User getUser(@PathParam("name") String name ) {
+	User out = find(name);
+	if (out == null) {
+			throw new WebApplicationException(404);
+	}
+	return out;
+    }
+	
+    @GET
+    public List<User> getUsers(@DefaultValue("10") @QueryParam("limit") int limit) {
+	return new ArrayList<User>(users.values());
+    }
+
+}

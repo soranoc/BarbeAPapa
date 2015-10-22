@@ -15,10 +15,10 @@ import javax.ws.rs.core.MediaType;
 public class BarberResource {
 
 	@POST
-	public Barber createUser(Barber user) {
-		int id = Init.getInstance().getBarberDao().insert(user);
-		user.setIdt(id);
-		return user;
+	public Barber createBarber(Barber barber) {
+		int id = Init.getInstance().getBarberDao().insert(barber);
+		barber.setIdt(id);
+		return barber;
 	}
 	
 	@GET
