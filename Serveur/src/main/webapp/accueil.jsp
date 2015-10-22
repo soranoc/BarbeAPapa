@@ -25,10 +25,10 @@
 			<form style="text-align: center" name="FormAccueil"
 				class="navbar-form" action="intermediaire.jsp" />
 			<br><br>
-			<input type="submit" id="buttonBB" name="type" value="barbier"
-				class="btn btn-default btn-lg" value="Je suis un barbier"> <br>
+			<input type="submit" id="buttonBB" name="type"
+				class="btn btn-default btn-lg" value="Je suis un barbier"><br>
 			<br>
-			<input type="submit" id="buttonBB" name="type" value="barbu"
+			<input type="submit" id="buttonBB" name="type"
 				class="btn btn-default btn-lg" value="Je suis un barbu">
 			</form>
 		</div>

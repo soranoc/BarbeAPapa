@@ -28,14 +28,14 @@
 			<input type="submit" id="buttonBB"
 				class="btn btn-default btn-lg" value="Connexion"> <br>
 			</form>
-			<%if (request.getParameter("type").equals("barbier")){%>
+			<%if (request.getParameter("type").equals("Je suis un barbier")){%>
 			<form style="text-align: center" name="FormBInscription"
 				class="navbar-form" action="formulaireBarber.jsp" />
 			<br>
 			<input type="submit" id="buttonBB"
 				class="btn btn-default btn-lg" value="Inscription"> <br>
 			</form>
-			<%}else if(request.getParameter("type").equals("barbu")){%>
+			<%}else if(request.getParameter("type").equals("Je suis un barbu")){%>
 			<form style="text-align: center" name="FormBInscription"
 				class="navbar-form" action="formulaireClient.jsp" />
 			<br>
