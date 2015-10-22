@@ -25,12 +25,11 @@
 
 </head>
 
-
 <%
 	BDD bdd = new BDD();
 	List<Barber> barbers = bdd.getBarbers();
 	Barber barber = null;
-	String login = request.getParameter("login");
+	String login = "angetheo@gmail.com";
 	for (int i = 0; i < barbers.size(); ++i) {
 		if (barbers.get(i).getMail().equals(login)) {
 			barber = barbers.get(i);
@@ -39,9 +38,46 @@
 %>
 
 <body>
-<div class="page-header">
-  <h1><%out.print(barber.getEntreprise());%><small>Profil</small></h1>
-</div>
-
+	<div class="container">
+		<div class="page-header">
+			<h1>
+				<%
+					out.print(barber.getEntreprise());
+				%><small> Profil</small>
+			</h1>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-6 col-md-3">
+				<a id=profilepic href="#" class="thumbnail"> <img
+					src="<%out.print(barber.getPhoto());%>" alt="">
+				</a>
+			</div>
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3>Informations</h3>
+				</div>
+				<div class="panel-body">
+					<h4>Téléphone</h4>
+					<%
+						out.print(barber.getTel());
+					%><br>
+					<h4>E-Mail</h4>
+					<%
+						out.print(barber.getMail());
+					%><br>
+					<h4>Ville</h4>
+					<%
+						out.print(barber.getVille());
+					%><br>
+					<h4>Adresse</h4>
+					<%
+						out.print(barber.getAdresse());
+					%><br>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

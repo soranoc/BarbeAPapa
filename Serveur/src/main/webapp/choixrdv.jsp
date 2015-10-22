@@ -27,17 +27,7 @@
 
 <body>
 
-	<!-- Pas utile
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-			<div class="container">
-				<a class="navbar-brand" href="ListeProfil">Barbe à Papa</a>
-				<p class="navbar-text navbar-left"><a href="login.html" class="navbar-link">Connexion et Insciption</a></p>
-				<p class="navbar-text navbar-left"><a href="ListeProfil" class="navbar-link">Liste des profils</a></p>
-				<p class="navbar-text navbar-left"><a href="matching.jsp" class="navbar-link">Matching</a></p>
-			</div>
-	</nav>
-	<br>-->
-
+	<br>
 	<div class="container">
 	<div class='page-header'>
 	<img id="header" src="http://img15.hostingpics.net/pics/270845pinkmoustache.png" />
