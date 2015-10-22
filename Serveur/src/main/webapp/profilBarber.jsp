@@ -6,6 +6,19 @@
 <!DOCTYPE html>
 <html>
 	<head>
+<meta charset=UTF-8>
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">	
+<link rel="stylesheet" href="style.css">
+
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
         <!-- En-tête de la page -->
         <meta charset="utf-8" />
         <title>Profil</title>
@@ -35,6 +48,7 @@
 	</head>
 
 	<body>
+
 	<div id="fb-root"></div>
 	<script>(function(d, s, id) {
  		 var js, fjs = d.getElementsByTagName(s)[0];
@@ -65,7 +79,9 @@
   		<p> Entreprise: <%out.println(barbe.getEntreprise()); %></p>
         <p> Adresse de l'entreprise: <%out.println(barbe.getAdresse()); %></p>
         <p> Telephone: <%out.println(barbe.getTel()); %></p>
-        <p> Fax: <%out.println(barbe.getFax()); %></p>
+        <p> Fax: <%if (barbe.getFax()!=null){
+					out.println(barbe.getFax());
+					} %></p>
         <p> Mail: <%out.println(barbe.getMail()); %></p>
 	</b>
 	<img src="http://www.clementpellerin.fr/wp-content/uploads/2011/05/facebook-icon.png" alt="lien Facebook" style="width:50px;heigth:50px">
