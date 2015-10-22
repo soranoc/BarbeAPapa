@@ -12,10 +12,14 @@ import static android.widget.Toast.makeText;
 
 public class ChoixClient extends AppCompatActivity {
 
+    public static String log="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choix_client);
+        final Intent intent = getIntent();
+        log= intent.getStringExtra(Login.log);
+        makeText(getApplicationContext(),log,LENGTH_LONG).show();
     }
 
     @Override

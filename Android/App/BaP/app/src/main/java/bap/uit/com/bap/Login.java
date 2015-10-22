@@ -1,5 +1,6 @@
 package bap.uit.com.bap;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,7 +12,9 @@ import android.widget.TextView;
 import static android.widget.Toast.LENGTH_LONG;
 import static android.widget.Toast.makeText;
 
-public class Login extends AppCompatActivity {
+public class Login extends Activity {
+
+    public static String log="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +73,7 @@ public class Login extends AppCompatActivity {
         Intent intent = new Intent(Login.this, ChoixClient.class);
         makeText(getApplicationContext(), "Bonjour "+loginS+" et Bienvenue !", LENGTH_LONG).show();
 
-        startActivity(intent);
+        intent.putExtra(log, loginS);
+        startActivityForResult(intent, 0);
     }
 }

@@ -9,6 +9,8 @@ import android.view.View;
 
 public class Jesuis extends AppCompatActivity {
 
+    public static String param="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,11 +42,14 @@ public class Jesuis extends AppCompatActivity {
 
     public void doBarbier(View view){
         Intent intent = new Intent(Jesuis.this, IndexBarbier.class);
-        startActivity(intent);
+        intent.putExtra(param,"barbier");
+        startActivityForResult(intent, 0);
     }
 
     public void doClient(View view){
         Intent intent = new Intent(Jesuis.this, IndexClient.class);
-        startActivity(intent);
+        intent.putExtra(param,"barbu");
+        startActivityForResult(intent, 0);
+
     }
 }

@@ -1,22 +1,27 @@
 package bap.uit.com.bap;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import static android.widget.Toast.LENGTH_LONG;
 import static android.widget.Toast.makeText;
 
-public class IndexBarbier extends AppCompatActivity {
+public class IndexBarbier extends Activity {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_index_barbier);
+        final Intent intent = getIntent();
+        String param2 = intent.getStringExtra(Jesuis.param);
+        makeText(getApplicationContext(),param2,LENGTH_LONG).show();
     }
 
     @Override
