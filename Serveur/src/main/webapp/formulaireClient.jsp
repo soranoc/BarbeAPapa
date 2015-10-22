@@ -13,7 +13,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-
+<link rel="stylesheet" href="style.css">
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
@@ -27,7 +27,7 @@
 <body>
 	<div class="container">
 		<div class='page-header col-sm-offset-1'>
-			<h1>Formulaire Inscription <small>Je suis un barbue</small></h1>
+			<h1>Formulaire Inscription <small>Je suis un barbu</small></h1>
 		</div>
 		<form method='post' action='Formulaire2' enctype='multipart/form-data' action='fup.cgi'>
 
@@ -141,13 +141,9 @@
 							value="<%out.println(ServletHelper.getValue("tel", params));%>"
 							name='tel' required>
 					</div>
-				</div>
-
-				
+				</div>			
 			</div>			
 			
-			
-
 			<div class='row'>
 				<div class='col-md-4 col-sm-offset-1'>
 					<div class='form-group'>

@@ -1,7 +1,4 @@
 package org.Serveur;
-
-
-
 import java.io.IOException;
 import java.util.List;
 
@@ -17,7 +14,7 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-@WebServlet("RegisterClient")
+@WebServlet("ServletRegisterClient")
 public class ServletRegisterClient extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;

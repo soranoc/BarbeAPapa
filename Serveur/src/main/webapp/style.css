@@ -27,6 +27,11 @@ input{
 
 }
 
-#thumbBarber{
+label{
+	color: #fff;
+}
 
+h1 small{
+	color: #d262bf;
+	
 }

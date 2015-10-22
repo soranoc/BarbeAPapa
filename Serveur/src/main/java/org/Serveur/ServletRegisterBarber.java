@@ -15,7 +15,7 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-@WebServlet("RegisterClient")
+@WebServlet("ServletRegisterBarber")
 public class ServletRegisterBarber extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
