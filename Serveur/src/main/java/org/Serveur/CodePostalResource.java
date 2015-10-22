@@ -1,3 +1,4 @@
+package org.Serveur;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -16,9 +17,9 @@ import javax.ws.rs.core.MediaType;
 @Produces(MediaType.APPLICATION_JSON)
 public class CodePostalResource {
 	
-	private final InputStream fichier = getClass().getResourceAsStream("../../../villes_france.csv");
+	private final InputStream fichier = getClass().getResourceAsStream("../../src/villes_france.csv");
 	
-	private static CPDao dao = App.getDbi().open(CPDao.class);
+	private static CPDao dao = Init.getInstance().getCPDao();
 	
 	/**
 	 * Permet d'envoyer les villes et les codes postaux à l'aide de la class

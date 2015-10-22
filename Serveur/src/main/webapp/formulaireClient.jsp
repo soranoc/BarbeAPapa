@@ -70,7 +70,7 @@
 
 				<div class='col-md-3'>
 					<div class='form-group'>
-						<label for='prenom'>Prénom : </label> <input type='text'
+						<label for='prenom'>Prï¿½nom : </label> <input type='text'
 							class='form-control'
 							value="<%out.println(ServletHelper.getValue("prenom", params));%>"
 							name='prenom' required>
@@ -164,7 +164,7 @@
 			<div class='row'>
 				<div class='col-md-4 col-sm-offset-1'>
 					<div class='form-group'>
-						<label for='tel'>Téléphone : </label> <input type='text'
+						<label for='tel'>Tï¿½lï¿½phone : </label> <input type='text'
 							class='form-control' placeholder='0670000000'
 							value="<%out.println(ServletHelper.getValue("tel", params));%>"
 							name='tel' required>
@@ -205,7 +205,7 @@
 			});
 		});
 		function getVilles(cp) {
-			$.getJSON("v2/cpdb/" + cp, function(data) {
+			$.getJSON("v1/cpdb/" + cp, function(data) {
 				var html = "";
 				for ( var index = 0; index < data.length; ++index) {
 					html = html + "<option value='"+data[index].ville+"'>"

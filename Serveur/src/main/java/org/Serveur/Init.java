@@ -52,6 +52,14 @@ public class Init {
 	public RdvDao getRdvDao() {
 		return initRdvDao();
 	}
+	
+	public CPDao initCPDao(){
+		return dbi.open(CPDao.class);
+	}
+	
+	public CPDao getCPDao(){
+		return initCPDao();
+	}
 
 	public void initTables() {
 		ClientDao cDao = getClientDao();
