@@ -5,6 +5,13 @@
 	width: 50%;
 }
 
+#profilepic{
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+	width: 150%;
+}
+
 body{
 	background-color:#472f2f;
 }
