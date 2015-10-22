@@ -42,6 +42,10 @@ public interface BarberDao {
 	@RegisterMapperFactory(BeanMapperFactory.class)
 	public List<Barber> searchByName(@Bind("nom") String nom);
 	
+	@SqlQuery("select * from barbers where mail = :mail")
+	@RegisterMapperFactory(BeanMapperFactory.class)
+	public Barber getByMail(@Bind("mail") String mail);
+	
 	@SqlUpdate("update barbers set valide = :valide where idt= :idt")
 	public int validerBarber(@Bind("idt") int idt, @Bind("valide") boolean valide);
 	
