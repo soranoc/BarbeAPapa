@@ -1,9 +1,6 @@
+package org.Serveur;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -13,24 +10,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import mainpack.Items.Barber;
-import mainpack.Items.Utilisateur;
-
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.commons.io.FilenameUtils;
 
 @WebServlet("RegisterClient")
 public class ServletRegisterBarber extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private OutputStream outStream;
 
 	public void doPost(HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException {
 
-		Barber c = new Barber();
+		Barber b = new Barber();
 		String password2 = "";
 		String mail2 = "";
 		try {
@@ -50,60 +42,58 @@ public class ServletRegisterBarber extends HttpServlet {
 					}
 
 					if ("nom".equals(fieldname)) {
-						c.setNom(fieldvalue);
+						b.setNom(fieldvalue);
 					}
 					if ("prenom".equals(fieldname)) {
-						c.setPrenom(fieldvalue);
+						b.setPrenom(fieldvalue);
+					}
+					if("photo".equals(fieldname)) {
+						b.setPhoto(fieldvalue);
 					}
 					if ("date".equals(fieldname)) {
-						c.setDateNaiss(fieldvalue);
+						b.setDateNaiss(fieldvalue);
 					}
 					if ("adresse".equals(fieldname)) {
-						c.setAdresse(fieldvalue);
+						b.setAdresse(fieldvalue);
 					}
 					if ("codep".equals(fieldname)) {
-						c.setCodePostal(fieldvalue);
+						b.setCodePostal(fieldvalue);
 					}
 					if ("ville".equals(fieldname)) {
-						c.setVille(fieldvalue);
+						b.setVille(fieldvalue);
 					}
 					if ("date".equals(fieldname)) {
-						c.setDateNaiss(fieldvalue);
+						b.setDateNaiss(fieldvalue);
 					}
 					if ("entreprise".equals(fieldname)) {
-						c.setEntreprise(fieldvalue);
+						b.setEntreprise(fieldvalue);
 					}
 												
 					if ("mail".equals(fieldname)) {
-						c.setMail(fieldvalue);
+						b.setMail(fieldvalue);
 					}
 					if ("tel".equals(fieldname)) {
-						c.setTel(fieldvalue);
+						b.setTel(fieldvalue);
 					}
 					if ("site".equals(fieldname)) {
-						c.setSite(fieldvalue);
+						b.setSite(fieldvalue);
 					}
 					if ("fax".equals(fieldname)) {
-						c.setFax(fieldvalue);
+						b.setFax(fieldvalue);
 					}
 					if ("profession".equals(fieldname)) {
-						c.setTypeDePrestation(fieldvalue);
+						b.setTypeDePrestation(fieldvalue);
 					}
 					if ("description".equals(fieldname)) {
-						c.setDescription(fieldvalue);
+						b.setDescription(fieldvalue);
 					}
 					
 					
 					if ("password".equals(fieldname)) {
-						c.setMdp(fieldvalue);
+						b.setMdp(fieldvalue);
 					}
-					c.setValide(true);
-					} else {
-					// Process form file field (input type="file").
-					String filename = FilenameUtils.getName(item.getName());
-					c.setPhoto("/tmp/" + filename);
-					InputStream filecontent = item.getInputStream();
-					writeFile(filecontent, filename);
+					b.setValide(true);
+					
 				}
 			}
 		} catch (FileUploadException e) {
@@ -116,12 +106,12 @@ public class ServletRegisterBarber extends HttpServlet {
 		String passwdconf = "";
 		String warning = "";
 		boolean checked = true;
-		if (!mail2.equals(c.getMail())) {
+		if (!mail2.equals(b.getMail())) {
 			emailconf = "has-error";
 			warning = "has-warning";
 			checked = false;
 		}
-		if (!password2.equals(c.getMdp())) {
+		if (!password2.equals(b.getMdp())) {
 			passwdconf = "has-error";
 			warning = "has-warning";
 			checked = false;
@@ -129,10 +119,7 @@ public class ServletRegisterBarber extends HttpServlet {
 
 		// redirection basique
 		if (checked == true) {
-			Utilisateur u = new Utilisateur();
-			int idClient = Init.getInstance().getClientDao().insert(c);
-			generateUtilisateur(u, c, idClient);
-			Init.getInstance().getUtilisateurDao().insert(u);
+			Init.getInstance().getBarberDao().insert(b);
 			res.sendRedirect("accueil.jsp");
 		}
 
@@ -145,22 +132,5 @@ public class ServletRegisterBarber extends HttpServlet {
 		RequestDispatcher rd = req.getRequestDispatcher("/formulaireClient.jsp");
 		rd.forward(req, res);
 	}
-
-	private void generateUtilisateur(Utilisateur u, Client c, int idClient) {
-		u.setIdt(-1);
-		u.setIdClient(idClient);
-		u.setMail(c.getMail());
-		u.setMdp(c.getMdp());
-
-	}
-
-	/**public void writeFile(InputStream initialStream, String s)throws IOException {
-		byte[] buffer = new byte[initialStream.available()];
-		initialStream.read(buffer);
-
-		File targetFile = new File("/tmp/" + s);
-		outStream = new FileOutputStream(targetFile);
-		outStream.write(buffer);
-	}**/
 }
 

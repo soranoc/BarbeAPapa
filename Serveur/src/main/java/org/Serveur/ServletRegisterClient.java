@@ -1,10 +1,8 @@
+package org.Serveur;
 
 
-import java.io.File;
-import java.io.FileOutputStream;
+
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -14,20 +12,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import mainpack.Items.Client;
-import mainpack.Items.Utilisateur;
-
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.commons.io.FilenameUtils;
 
 @WebServlet("RegisterClient")
 public class ServletRegisterClient extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private OutputStream outStream;
 
 	public void doPost(HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException {
 
@@ -81,14 +74,7 @@ public class ServletRegisterClient extends HttpServlet {
 					if ("password".equals(fieldname)) {
 						c.setMdp(fieldvalue);
 					}
-					c.setValide(true);
-					} else {
-					// Process form file field (input type="file").
-					String filename = FilenameUtils.getName(item.getName());
-					c.setPhoto("/tmp/" + filename);
-					InputStream filecontent = item.getInputStream();
-					writeFile(filecontent, filename);
-				}
+					} 
 			}
 		} catch (FileUploadException e) {
 			throw new ServletException("Cannot parse multipart request.", e);
@@ -113,10 +99,7 @@ public class ServletRegisterClient extends HttpServlet {
 
 		// redirection basique
 		if (checked == true) {
-			Utilisateur u = new Utilisateur();
-			int idClient = Init.getInstance().getClientDao().insert(c);
-			generateUtilisateur(u, c, idClient);
-			Init.getInstance().getUtilisateurDao().insert(u);
+			Init.getInstance().getClientDao().insert(c);
 			res.sendRedirect("accueil.jsp");
 		}
 
@@ -129,22 +112,5 @@ public class ServletRegisterClient extends HttpServlet {
 		RequestDispatcher rd = req.getRequestDispatcher("/formulaireClient.jsp");
 		rd.forward(req, res);
 	}
-
-	private void generateUtilisateur(Utilisateur u, Client c, int idClient) {
-		u.setIdt(-1);
-		u.setIdClient(idClient);
-		u.setMail(c.getMail());
-		u.setMdp(c.getMdp());
-
-	}
-
-	/**public void writeFile(InputStream initialStream, String s)throws IOException {
-		byte[] buffer = new byte[initialStream.available()];
-		initialStream.read(buffer);
-
-		File targetFile = new File("/tmp/" + s);
-		outStream = new FileOutputStream(targetFile);
-		outStream.write(buffer);
-	}**/
 }
 
