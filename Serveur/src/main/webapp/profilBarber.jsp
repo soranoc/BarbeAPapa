@@ -1,3 +1,8 @@
+
+<%@ page import="java.util.List"%>
+<%@ page import="org.Serveur.BDD"%>
+<%@ page import="org.Serveur.Barber"%>
+
 <!DOCTYPE html>
 <html>
 	<head>
