@@ -133,15 +133,4 @@ public class Client extends Item {
 		this.dateNaiss = dateNaiss;
 	}
 
-	@Override
-	public String getTitle() {
-		return "<span class='glyphicon glyphicon-user'></span> "+prenom+" "+nom;
-	}
-
-	///Renvoie le nom de la table dans laquelle doit �tre stock�e l'Item
-	@Override
-	public String getType() {
-		return "clients";
-	}
-
 }
