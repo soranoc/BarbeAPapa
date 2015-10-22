@@ -1,4 +1,4 @@
-﻿package com.adopt.bdd;
+﻿package org.Serveur;
 
 public class Ville {
 	private int cp;
