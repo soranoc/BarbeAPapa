@@ -1,5 +1,6 @@
 package bap.uit.com.bap;
 
+
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
 
 import static android.widget.Toast.*;
 
@@ -39,6 +41,7 @@ public class Register extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
     public void doRegister(View view){
 
 
@@ -83,6 +86,9 @@ public class Register extends AppCompatActivity {
         TextView codeP =null;
         codeP = (TextView) findViewById(R.id.codepostal);
         codePS=codeP.getText()+"";
+        if(codePS.equals("")){
+            codePS=1+"";
+        }
         codePint=Integer.parseInt(codePS);
         // faire ici le code
 
@@ -96,8 +102,7 @@ public class Register extends AppCompatActivity {
         } else if(villeS.equals("")| adresseS.equals("") | mdpS.equals("") | nomS.equals("") | prenomS.equals("") | mailS.equals("")){
             makeText(getApplicationContext(), "Il faut remplir tout les champs", LENGTH_LONG).show();
 
-        } else if(codePint<9999 | codePint>100000 ) {
-
+        } else if (codePint<9999 | codePint>100000 ) {
             codeP.setText("");
             codeP.setHintTextColor(getResources().getColor(R.color.red));
             makeText(getApplicationContext(), "code postal invalide", LENGTH_LONG).show();

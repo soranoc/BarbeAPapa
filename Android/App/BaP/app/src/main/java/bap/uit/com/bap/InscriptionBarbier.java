@@ -43,8 +43,8 @@ public class InscriptionBarbier extends AppCompatActivity {
     public void doRegister(View view){
 
         String nomS, prenomS, mailS, mdpS, mdpconfS, telS, adresseS, villeS;
-        int codePS, prixMinS, prixMaxS;
-        codePS=0;
+        int codePint, prixMinint, prixMaxint;
+        String codePS="";
 
         TextView nom =null;
         nom = (TextView) findViewById(R.id.nom);
@@ -81,6 +81,11 @@ public class InscriptionBarbier extends AppCompatActivity {
 
         TextView codeP =null;
         codeP = (TextView) findViewById(R.id.codepostal);
+        codePS=codeP.getText()+"";
+        if(codePS.equals("")){
+            codePS=1+"";
+        }
+        codePint=Integer.parseInt(codePS);
  // faire ici le code
 
         TextView prixMin =null;
@@ -101,7 +106,7 @@ public class InscriptionBarbier extends AppCompatActivity {
         }
         else if(villeS.equals("") | adresseS.equals("") | mdpS.equals("") | nomS.equals("") | prenomS.equals("") | mailS.equals("")){
             makeText(getApplicationContext(), "Il faut remplir tout les champs", LENGTH_LONG).show();
-        } else if(codePS<999 | codePS>10000 ) {
+        } else if(codePint<9999 | codePint>100000 ) {
             codeP.setText("");
             codeP.setHintTextColor(getResources().getColor(R.color.red));
             makeText(getApplicationContext(), "code postal invalide", LENGTH_LONG).show();
