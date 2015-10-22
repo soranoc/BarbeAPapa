@@ -19,7 +19,6 @@
 	<br>
 	<br>
 	<img id="header" src="http://img15.hostingpics.net/pics/270845pinkmoustache.png" />
-	</a>">
 	<div class="row">
 		<div>
 			<form style="text-align: center" name="FormAccueil"
