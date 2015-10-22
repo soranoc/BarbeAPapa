@@ -99,7 +99,7 @@ public class RDV extends AppCompatActivity {
 
         //String tempo = "vous avez bien pris rdv avec le barbier :"+start.getText()+" à "+heure.getText()+" le "+date.getText();
         makeText(getApplicationContext(),"votre rendez vous avec "+nomBarbierS+" à "+heureS+" le "+dateS+"est envoyé.... batard",LENGTH_LONG).show();
-        Intent intent = new Intent(RDV.this,Jesuis.class);
+        Intent intent = new Intent(RDV.this,ChoixClient.class);
         startActivity(intent);
     }
 }

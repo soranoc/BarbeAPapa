@@ -60,7 +60,7 @@ public class Login extends AppCompatActivity {
         String mdpS;
         String loginS;
         TextView login =null;
-        login = (TextView) findViewById(R.id.lister);
+        login = (TextView) findViewById(R.id.login);
         loginS = login.getText()+"";
 
         TextView mdp =null;
