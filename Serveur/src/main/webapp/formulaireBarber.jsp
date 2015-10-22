@@ -28,7 +28,8 @@
 	<div class="container">
 		<div class='page-header col-sm-offset-1'>
 			<h1>
-				Formulaire Inscription <small>Je suis un barbier</small>
+				Formulaire Inscription <small>Je suis un barbier</small>      
+				<img id="moustache" src="http://img4.hostingpics.net/pics/366706moustache.png"></h1>
 			</h1>
 		</div>
 		<form method='post' action='ServletRegisterBarber'
