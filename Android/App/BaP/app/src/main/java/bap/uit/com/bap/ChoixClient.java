@@ -6,23 +6,22 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
 import static android.widget.Toast.LENGTH_LONG;
 import static android.widget.Toast.makeText;
 
-public class Login extends AppCompatActivity {
+public class ChoixClient extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_choix_client);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_login, menu);
+        getMenuInflater().inflate(R.menu.menu_choix_client, menu);
         return true;
     }
 
@@ -40,36 +39,14 @@ public class Login extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    public void doLogin(View view){
 
-        //rajouter boolean si barbier dans le intent
+    public void doReserver(View view){
+        Intent intent = new Intent(ChoixClient.this, RDV.class);
+        startActivity(intent);
+    }
 
-        //ne marche pas
-        /*
-        if(ESTBARBIER.equals("oui")) {
-            estBarbier = false;
-        }
-        if(!estBarbier){
-            Intent intent = new Intent(Login.this, RDV.class);
-            startActivity(intent);
-        } else {
-            Intent intent = new Intent(Login.this, EDT_Barbier.class);
-            startActivity(intent);
-        }
-        */
-        String mdpS;
-        String loginS;
-        TextView login =null;
-        login = (TextView) findViewById(R.id.lister);
-        loginS = login.getText()+"";
-
-        TextView mdp =null;
-        mdp = (TextView) findViewById(R.id.mdp);
-        mdpS = mdp.getText()+"";
-
-        Intent intent = new Intent(Login.this, ChoixClient.class);
-        makeText(getApplicationContext(), "Bonjour "+loginS+" et Bienvenue !", LENGTH_LONG).show();
-
+    public void doLister(View view){
+        Intent intent = new Intent(ChoixClient.this, ListedesBarbiers.class);
         startActivity(intent);
     }
 }

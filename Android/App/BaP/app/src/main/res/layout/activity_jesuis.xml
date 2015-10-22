@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Je suis un Barbier"
-        android:id="@+id/barbier"
+        android:id="@+id/reserver"
         android:background="@drawable/rose"
         android:textColor="#ffffff"
         android:layout_centerVertical="true"
@@ -33,15 +33,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Je suis un Barbu"
-        android:id="@+id/button"
+        android:id="@+id/lister"
         android:textColor="#ffffff"
         android:onClick="doClient"
         android:background="@drawable/rose"
-        android:layout_below="@+id/barbier"
+        android:layout_below="@+id/reserver"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/barbier"
-        android:layout_alignEnd="@+id/barbier" />
+        android:layout_alignRight="@+id/reserver"
+        android:layout_alignEnd="@+id/reserver" />
 
 
 </RelativeLayout>

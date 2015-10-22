@@ -56,6 +56,18 @@
             android:name=".LoginBarbier"
             android:label="@string/title_activity_login_barbier" >
         </activity>
+        <activity
+            android:name=".ChoixClient"
+            android:label="@string/title_activity_choix_client" >
+        </activity>
+        <activity
+            android:name=".ListedesBarbiers"
+            android:label="@string/title_activity_listedes_barbiers" >
+        </activity>
+        <activity
+            android:name=".PageBarbier"
+            android:label="@string/title_activity_page_barbier" >
+        </activity>
     </application>
 
 </manifest>

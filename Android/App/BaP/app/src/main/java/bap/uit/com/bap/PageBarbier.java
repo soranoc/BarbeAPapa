@@ -6,23 +6,19 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
-import static android.widget.Toast.LENGTH_LONG;
-import static android.widget.Toast.makeText;
-
-public class LoginBarbier extends AppCompatActivity {
+public class PageBarbier extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_barbier);
+        setContentView(R.layout.activity_page_barbier);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_login_barbier, menu);
+        getMenuInflater().inflate(R.menu.menu_page_barbier, menu);
         return true;
     }
 
@@ -40,19 +36,9 @@ public class LoginBarbier extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    public void doLogin(View view){
-        String mdpS;
-        String loginS;
-        TextView login =null;
-        login = (TextView) findViewById(R.id.lister);
-        loginS = login.getText()+"";
 
-        TextView mdp =null;
-        mdp = (TextView) findViewById(R.id.mdp);
-        mdpS = mdp.getText()+"";
-        Intent intent = new Intent(LoginBarbier.this, EDT_Barbier.class);
-        makeText(getApplicationContext(), "Bonjour "+loginS+" et Bienvenue !", LENGTH_LONG).show();
-
+    public void doReserver(View view){
+        Intent intent = new Intent(PageBarbier.this, RDV.class);
         startActivity(intent);
     }
 }

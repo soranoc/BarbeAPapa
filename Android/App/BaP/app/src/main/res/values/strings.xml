@@ -13,4 +13,7 @@
     <string name="title_activity_edt__barbier">EDT_Barbier</string>
     <string name="title_activity_index_client">IndexClient</string>
     <string name="title_activity_login_barbier">LoginBarbier</string>
+    <string name="title_activity_choix_client">choixClient</string>
+    <string name="title_activity_listedes_barbiers">ListedesBarbiers</string>
+    <string name="title_activity_page_barbier">PageBarbier</string>
 </resources>
