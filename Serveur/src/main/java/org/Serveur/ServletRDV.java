@@ -22,7 +22,6 @@ public class ServletRDV extends HttpServlet {
 		int idClient = 1;
 		int idBarber = -1;
 		String mail = req.getParameter("mail");
-		mail = mail.substring(0, mail.length()-2);
 		Barber b = Init.getInstance().getBarberDao().getByMail(mail);
 		idBarber = b.getIdt();
 		String barber = req.getParameter("barbier");

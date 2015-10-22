@@ -23,8 +23,8 @@
 		<div>
 			<h2 style="text-align: center" class="navbar-form">Se connecter</h2>
 			<form style="text-align: center" name="FormConnexion" class="navbar-form" action="Authen"/>
-				<br><input type="text" class="form-control" name="pseudo" placeholder="Login" required>
-				<br><br><input type="password" class="form-control" name="mot_de_passe" placeholder="Mot de passe" required>
+				<br><input type="text" class="form-control" name="login" placeholder="Login" required>
+				<br><br><input type="password" class="form-control" name="mdp" placeholder="Mot de passe" required>
 				<br><br><input type="submit" class="btn btn-default btn-lg" value="Valider">
 			</form>
 		</div>

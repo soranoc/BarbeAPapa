@@ -1,14 +1,24 @@
-import java.io.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
-import java.sql.*;
-import org.apache.commons.lang3.StringEscapeUtils;
+package org.Serveur;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet("Authen")
 public class Authen extends HttpServlet {
-    public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 	PrintWriter out = res.getWriter();
 	
 	res.setContentType("text/html");
@@ -18,20 +28,18 @@ public class Authen extends HttpServlet {
 	out.println("<body><center>");
 	out.println("<h1>Login :</h1>");
 	
-	String login=StringEscapeUtils.escapeHtml4(req.getParameter("login"));
-	String mdp=StringEscapeUtils.escapeHtml4(req.getParameter("mdp"));
+	String login=req.getParameter("login");
+	String mdp=req.getParameter("mdp");
 
 	List<Client> l = Init.getInstance().getClientDao().listerClients();
-	for(int i;i<l.length();++i){
-		if(l.get(i).getMail().equals(login){
-			if(l.get(i).getmdp().equals(mdp){
-				res.sendRedirect("accueil.jsp");
+	for(int i=0;i<l.size();++i){
+		if(l.get(i).getMail().equals(login)){
+			if(l.get(i).getMdp().equals(mdp)){
+				res.sendRedirect("choixrdv.jsp");
 			}		
 		}
-		else 
-			res.sendRedirect("connexion.jsp");	
 	}		    
-
+	res.sendRedirect("connexion.jsp");	
 	out.println("</center></body>");
 
     }

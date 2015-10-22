@@ -62,8 +62,8 @@
 					<div id="thumbnailBarbier" class="thumbnail">
 					<form action='ServletRDV' method='post'>
 						<img id="thumbBarber" src="<%out.println(barbers.get(i).getPhoto());%>" class="img-responsive">
-						<input type="hidden" name="barbier" value="<%out.println(barbers.get(i).getEntreprise());%>">
-						<input type="hidden" name="mail" value="<%out.println(barbers.get(i).getMail());%>">
+						<input type="hidden" name="barbier" value="<%out.print(barbers.get(i).getEntreprise());%>">
+						<input type="hidden" name="mail" value="<%out.print(barbers.get(i).getMail());%>">
 						<div class="caption">
 							<h3><%out.println(barbers.get(i).getEntreprise()); %></h3>
 								<h4>Horaires</h4>
