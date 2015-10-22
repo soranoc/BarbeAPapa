@@ -69,7 +69,7 @@
 					<div
 						class='form-group <%out.println(request.getAttribute("warning"));%>'>
 						<label for='nom'>Photo (*) : </label><input type='url'
-							value='http://ma-photo.jpg' name='photo' required
+							value='' name='photo' placeholder='http://ma-photo.jpg' required
 							class='form-control'>
 					</div>
 				</div>
@@ -177,110 +177,105 @@
 					<div class='form-group'>
 						<label for='profession'>Type de prestation (*) : </label>
 						<div class="radio">
-							<label> <input type="radio" name="optionsRadios"
-								id="optionsRadios1" value="Barbier" checked> Option one
-								is this and that&mdash;be sure to include why it's great
+							<label> <input type="radio" name="prestation"
+								id="optionsRadios1" value="Barbier" checked> Barbier
 							</label>
 						</div>
 						<div class="radio">
-							<label> <input type="radio" name="optionsRadios"
-								id="optionsRadios2" value="Coiffeur"> Option two can be
-								something else and selecting it will deselect option one
+							<label> <input type="radio" name="prestation"
+								id="optionsRadios2" value="Coiffeur"> Coiffeur
 							</label>
 						</div>
 						<div class="radio disabled">
-							<label> <input type="radio" name="optionsRadios"
-								id="optionsRadios3" value="Coiffeur-Barbier" disabled> Option
-								three is disabled
+							<label> <input type="radio" name="prestation"
+								id="optionsRadios3" value="Coiffeur-Barbier"> Coiffeur-Barbier
 							</label>
 						</div>
 					</div>
 				</div>
+			</div>
 
-				<div class='row'>
+			<div class='row'>
 
-					<div class='col-md-8 col-sm-offset-1'>
-						<div class='form-group'>
-							<label for='description'>Description : </label>
-							<textarea name='description' id='description' rows=5
-								class='form-control'
-								placeholder='Comment voyez vous votre métier ?'>
+				<div class='col-md-8 col-sm-offset-1'>
+					<div class='form-group'>
+						<label for='description'>Description : </label>
+						<textarea name='description' id='description' rows=5
+							class='form-control' placeholder='Décrivez votre activité en quelques mots'>
 							<%out.print(params.get("description") != null ? params.get("description")[0] +"" : "");%>
 						</textarea>
-						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class='row'>
+				<div class='col-md-4 col-sm-offset-1'>
+					<div class='form-group'>
+						<label for='facebook'>Facebook : </label> <input type='text'
+							class='form-control' placeholder='http://monfacebook.fr/'
+							value="<%out.println(ServletHelper.getValue("facebook", params));%>"
+							name='facebook'>
 					</div>
 				</div>
 
-
-				<div class='row'>
-					<div class='col-md-4 col-sm-offset-1'>
-						<div class='form-group'>
-							<label for='facebook'>Facebook : </label> <input type='text'
-								class='form-control' placeholder='http://monfacebook.fr/'
-								value="<%out.println(ServletHelper.getValue("facebook", params));%>"
-								name='facebook'>
-						</div>
+				<div class='col-md-4'>
+					<div class='form-group'>
+						<label for='twitter'>Twitter : </label> <input type='text'
+							class='form-control' placeholder='http://montwitter.fr/'
+							value="<%out.println(ServletHelper.getValue("twitter", params));%>"
+							name='twitter'>
 					</div>
+				</div>
+			</div>
 
-					<div class='col-md-4'>
-						<div class='form-group'>
-							<label for='twitter'>Twitter : </label> <input type='text'
-								class='form-control' placeholder='http://montwitter.fr/'
-								value="<%out.println(ServletHelper.getValue("twitter", params));%>"
-								name='twitter'>
-						</div>
+			<div class='row'>
+				<div class='col-md-4 col-sm-offset-1'>
+					<div class='form-group'>
+						<label for='linkedin'>LinkedIn : </label> <input type='text'
+							class='form-control' placeholder='http://monlinkedin.fr/'
+							value="<%out.println(ServletHelper.getValue("linkedin", params));%>"
+							name='linkedin'>
 					</div>
 				</div>
 
-				<div class='row'>
-					<div class='col-md-4 col-sm-offset-1'>
-						<div class='form-group'>
-							<label for='linkedin'>LinkedIn : </label> <input type='text'
-								class='form-control' placeholder='http://monlinkedin.fr/'
-								value="<%out.println(ServletHelper.getValue("linkedin", params));%>"
-								name='linkedin'>
-						</div>
-					</div>
-
-					<div class='col-md-4'>
-						<div class='form-group'>
-							<label for='google'>Google+ : </label> <input type='text'
-								class='form-control' placeholder='http://mongoogleplus.fr/'
-								value="<%out.println(ServletHelper.getValue("google", params));%>"
-								name='google'>
-						</div>
+				<div class='col-md-4'>
+					<div class='form-group'>
+						<label for='google'>Google+ : </label> <input type='text'
+							class='form-control' placeholder='http://mongoogleplus.fr/'
+							value="<%out.println(ServletHelper.getValue("google", params));%>"
+							name='google'>
 					</div>
 				</div>
+			</div>
 
-				<div class='row'>
-					<div class='col-md-4 col-sm-offset-1'>
-						<div class='form-group'>
-							<label for='password'>Mot de passe (*) : </label> <input
-								type='password' class='form-control'
-								value="<%out.println(ServletHelper.getValue("password", params));%>"
-								name='password' required>
-						</div>
-					</div>
-
-					<div class='col-md-4'>
-						<div
-							class='form-group <%out.println(request.getAttribute("passwdconf"));%>'>
-							<label for='password2'>Confirmer Mot de passe (*) : </label> <input
-								type='password' class='form-control'
-								value="<%out.println(ServletHelper.getValue("password2", params));%>"
-								name='password2' required>
-						</div>
+			<div class='row'>
+				<div class='col-md-4 col-sm-offset-1'>
+					<div class='form-group'>
+						<label for='password'>Mot de passe (*) : </label> <input
+							type='password' class='form-control'
+							value="<%out.println(ServletHelper.getValue("password", params));%>"
+							name='password' required>
 					</div>
 				</div>
 
-				<div class='form-group col-sm-offset-1'>
-					<label>(*) : Champs requis</label>
+				<div class='col-md-4'>
+					<div
+						class='form-group <%out.println(request.getAttribute("passwdconf"));%>'>
+						<label for='password2'>Confirmer Mot de passe (*) : </label> <input
+							type='password' class='form-control'
+							value="<%out.println(ServletHelper.getValue("password2", params));%>"
+							name='password2' required>
+					</div>
 				</div>
+			</div>
 
-				<div class='form-group col-sm-offset-8'>
-					<button type='submit' class='btn btn-success btn-lg'>Valider</button>
-
-				</div>
+			<div class='form-group col-sm-offset-1'>
+				<label>(*) : Champs requis</label>
+			</div>
+			<div class='form-group col-sm-offset-8'>
+				<button type='submit' id='validation' class='btn btn-success btn-lg'>Valider</button>
+			</div>
 		</form>
 	</div>
 	<script type="text/javascript">
