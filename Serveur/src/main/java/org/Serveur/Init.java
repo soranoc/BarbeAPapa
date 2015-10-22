@@ -53,7 +53,7 @@ public class Init {
 		return initRdvDao();
 	}
 
-	private void initTables() {
+	public void initTables() {
 		ClientDao cDao = getClientDao();
 		cDao.dropClientTable();
 		cDao.createClientTable();
@@ -101,7 +101,7 @@ public class Init {
 				"J'aime les grosses moustaches bien stylées.",
 				"moustashop.facebook.com", null, null, null,
 				"Coiffeur/Barbier", true));
-		bDao.insert(new Barber(-1, "http://www.taillersabarbe.fr/wp-content/uploads/2015/06/barbe-Nicolas-II.jpg", "Th�o", "Ange", "Séville",
+		bDao.insert(new Barber(-1, "http://www.taillersabarbe.fr/wp-content/uploads/2015/06/barbe-Nicolas-II.jpg", "Th�o", "Ange", "Séville",
 				"www.seville.fr", "37 rue paumée dans un coin", "32100",
 				"Marrant-City", "angetheo@gmail.com", "anget", "20/20/2020",
 				"06010003030", null,
