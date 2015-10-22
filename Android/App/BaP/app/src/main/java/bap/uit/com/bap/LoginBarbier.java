@@ -6,21 +6,23 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
-public class Jesuis extends AppCompatActivity {
+import static android.widget.Toast.LENGTH_LONG;
+import static android.widget.Toast.makeText;
 
-    public static String param="";
+public class LoginBarbier extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jesuis);
+        setContentView(R.layout.activity_login_barbier);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_jesuis, menu);
+        getMenuInflater().inflate(R.menu.menu_login_barbier, menu);
         return true;
     }
 
@@ -38,18 +40,19 @@ public class Jesuis extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-//ajouter boolean estBarbier
+    public void doLogin(View view){
+        String mdpS;
+        String loginS;
+        TextView login =null;
+        login = (TextView) findViewById(R.id.login);
+        loginS = login.getText()+"";
 
-    public void doBarbier(View view){
-        Intent intent = new Intent(Jesuis.this, IndexBarbier.class);
-        intent.putExtra(param,"barbier");
-        startActivityForResult(intent, 0);
-    }
+        TextView mdp =null;
+        mdp = (TextView) findViewById(R.id.mdp);
+        mdpS = mdp.getText()+"";
+        Intent intent = new Intent(LoginBarbier.this, EDT_Barbier.class);
+        makeText(getApplicationContext(), "Bonjour "+loginS+" et Bienvenue !", LENGTH_LONG).show();
 
-    public void doClient(View view){
-        Intent intent = new Intent(Jesuis.this, IndexClient.class);
-        intent.putExtra(param,"barbu");
-        startActivityForResult(intent, 0);
-
+        startActivity(intent);
     }
 }

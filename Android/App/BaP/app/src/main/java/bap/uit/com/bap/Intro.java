@@ -20,8 +20,8 @@ public class Intro extends AppCompatActivity {
             public void run(){
                 try {
                     synchronized(this){
-                        wait(3500);
-                        Intent intent = new Intent(Intro.this, Index.class);
+                        wait(1500);
+                        Intent intent = new Intent(Intro.this, Jesuis.class);
                         startActivity(intent);
                     }
                 }

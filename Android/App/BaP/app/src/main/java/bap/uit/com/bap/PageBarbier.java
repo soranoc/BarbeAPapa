@@ -7,18 +7,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class Index extends AppCompatActivity {
+public class PageBarbier extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_index);
+        setContentView(R.layout.activity_page_barbier);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_index, menu);
+        getMenuInflater().inflate(R.menu.menu_page_barbier, menu);
         return true;
     }
 
@@ -37,13 +37,8 @@ public class Index extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void doLogin(View view){
-        Intent intent = new Intent(Index.this, Login.class);
+    public void doReserver(View view){
+        Intent intent = new Intent(PageBarbier.this, RDV.class);
         startActivity(intent);
-    }
-    public void doRegister(View view){
-        Intent intent = new Intent(Index.this, Register.class);
-        startActivity(intent);
-
     }
 }

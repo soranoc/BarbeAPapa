@@ -7,20 +7,25 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class Jesuis extends AppCompatActivity {
+import static android.widget.Toast.LENGTH_LONG;
+import static android.widget.Toast.makeText;
 
-    public static String param="";
+public class ChoixClient extends AppCompatActivity {
 
+    public static String log="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jesuis);
+        setContentView(R.layout.activity_choix_client);
+        final Intent intent = getIntent();
+        log= intent.getStringExtra(Login.log);
+        makeText(getApplicationContext(),log,LENGTH_LONG).show();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_jesuis, menu);
+        getMenuInflater().inflate(R.menu.menu_choix_client, menu);
         return true;
     }
 
@@ -38,18 +43,14 @@ public class Jesuis extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-//ajouter boolean estBarbier
 
-    public void doBarbier(View view){
-        Intent intent = new Intent(Jesuis.this, IndexBarbier.class);
-        intent.putExtra(param,"barbier");
-        startActivityForResult(intent, 0);
+    public void doReserver(View view){
+        Intent intent = new Intent(ChoixClient.this, RDV.class);
+        startActivity(intent);
     }
 
-    public void doClient(View view){
-        Intent intent = new Intent(Jesuis.this, IndexClient.class);
-        intent.putExtra(param,"barbu");
-        startActivityForResult(intent, 0);
-
+    public void doLister(View view){
+        Intent intent = new Intent(ChoixClient.this, ListedesBarbiers.class);
+        startActivity(intent);
     }
 }

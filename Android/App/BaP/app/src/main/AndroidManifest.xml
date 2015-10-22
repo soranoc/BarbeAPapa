@@ -40,6 +40,34 @@
             android:name=".InscriptionBarbier"
             android:label="@string/title_activity_inscription_barbier" >
         </activity>
+        <activity
+            android:name=".IndexBarbier"
+            android:label="@string/title_activity_index_barbier" >
+        </activity>
+        <activity
+            android:name=".EDT_Barbier"
+            android:label="@string/title_activity_edt__barbier" >
+        </activity>
+        <activity
+            android:name=".IndexClient"
+            android:label="@string/title_activity_index_client" >
+        </activity>
+        <activity
+            android:name=".LoginBarbier"
+            android:label="@string/title_activity_login_barbier" >
+        </activity>
+        <activity
+            android:name=".ChoixClient"
+            android:label="@string/title_activity_choix_client" >
+        </activity>
+        <activity
+            android:name=".ListedesBarbiers"
+            android:label="@string/title_activity_listedes_barbiers" >
+        </activity>
+        <activity
+            android:name=".PageBarbier"
+            android:label="@string/title_activity_page_barbier" >
+        </activity>
     </application>
 
 </manifest>

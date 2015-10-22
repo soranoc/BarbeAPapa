@@ -1,13 +1,20 @@
 package bap.uit.com.bap;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
-public class Login extends AppCompatActivity {
+import static android.widget.Toast.LENGTH_LONG;
+import static android.widget.Toast.makeText;
+
+public class Login extends Activity {
+
+    public static String log="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +44,36 @@ public class Login extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     public void doLogin(View view){
-        Intent intent = new Intent(Login.this, Jesuis.class);
-        startActivity(intent);
+
+        //rajouter boolean si barbier dans le intent
+
+        //ne marche pas
+        /*
+        if(ESTBARBIER.equals("oui")) {
+            estBarbier = false;
+        }
+        if(!estBarbier){
+            Intent intent = new Intent(Login.this, RDV.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(Login.this, EDT_Barbier.class);
+            startActivity(intent);
+        }
+        */
+        String mdpS;
+        String loginS;
+        TextView login =null;
+        login = (TextView) findViewById(R.id.login);
+        loginS = login.getText()+"";
+
+        TextView mdp =null;
+        mdp = (TextView) findViewById(R.id.mdp);
+        mdpS = mdp.getText()+"";
+
+        Intent intent = new Intent(Login.this, ChoixClient.class);
+        makeText(getApplicationContext(), "Bonjour "+loginS+" et Bienvenue !", LENGTH_LONG).show();
+
+        intent.putExtra(log, loginS);
+        startActivityForResult(intent, 0);
     }
 }
