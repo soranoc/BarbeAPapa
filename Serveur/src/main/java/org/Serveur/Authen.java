@@ -6,7 +6,7 @@ import java.sql.*;
 import org.apache.commons.lang3.StringEscapeUtils;
 
 
-@WebServlet("/servlet/Authen")
+@WebServlet("Authen")
 public class Authen extends HttpServlet {
     public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 	PrintWriter out = res.getWriter();
