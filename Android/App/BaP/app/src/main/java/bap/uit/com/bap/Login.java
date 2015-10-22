@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+
+import static android.widget.Toast.LENGTH_LONG;
+import static android.widget.Toast.makeText;
 
 public class Login extends AppCompatActivity {
 
@@ -53,7 +57,19 @@ public class Login extends AppCompatActivity {
             startActivity(intent);
         }
         */
+        String mdpS;
+        String loginS;
+        TextView login =null;
+        login = (TextView) findViewById(R.id.button);
+        loginS = login.getText()+"";
+
+        TextView mdp =null;
+        mdp = (TextView) findViewById(R.id.mdp);
+        mdpS = mdp.getText()+"";
+
         Intent intent = new Intent(Login.this, RDV.class);
+        makeText(getApplicationContext(), "Bonjour "+loginS+" et Bienvenue !", LENGTH_LONG).show();
+
         startActivity(intent);
     }
 }

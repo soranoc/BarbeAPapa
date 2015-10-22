@@ -83,17 +83,22 @@ public class RDV extends AppCompatActivity {
 
     public void doValide(View v){
 
-        TextView start;
-        start = (TextView) findViewById(R.id.nom_barbier);
+        String nomBarbierS, heureS, dateS;
+
+        TextView nomBarbier;
+        nomBarbier = (TextView) findViewById(R.id.nom_barbier);
+        nomBarbierS= nomBarbier.getText()+"";
 
         TextView heure =null;
-        start = (TextView) findViewById(R.id.date);
+        heure = (TextView) findViewById(R.id.date);
+        heureS= heure.getText()+"";
 
         TextView date =null;
-        start = (TextView) findViewById(R.id.heure);
+        date = (TextView) findViewById(R.id.heure);
+        dateS= date.getText()+"";
 
         //String tempo = "vous avez bien pris rdv avec le barbier :"+start.getText()+" à "+heure.getText()+" le "+date.getText();
-        makeText(getApplicationContext(),"WORTH IT",LENGTH_LONG).show();
+        makeText(getApplicationContext(),"votre rendez vous avec "+nomBarbierS+" à "+heureS+" le "+dateS+"est envoyé.... batard",LENGTH_LONG).show();
         Intent intent = new Intent(RDV.this,Jesuis.class);
         startActivity(intent);
     }

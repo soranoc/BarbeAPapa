@@ -44,6 +44,7 @@ public class InscriptionBarbier extends AppCompatActivity {
 
         String nomS, prenomS, mailS, mdpS, mdpconfS, telS, adresseS, villeS;
         int codePS, prixMinS, prixMaxS;
+        codePS=0;
 
         TextView nom =null;
         nom = (TextView) findViewById(R.id.nom);
@@ -54,8 +55,9 @@ public class InscriptionBarbier extends AppCompatActivity {
         prenomS = prenom.getText()+"";
 
         TextView mail =null;
-        mail = (TextView) findViewById(R.id.email);
-        mailS= mail.getText()+"";
+        mail = (TextView) findViewById(R.id.login);
+//        mailS= mail.getText()+"";
+        mailS="toto@tamer.fr";
 
         TextView mdp =null;
         mdp = (TextView) findViewById(R.id.mdp);
@@ -89,16 +91,24 @@ public class InscriptionBarbier extends AppCompatActivity {
         prixMax = (TextView) findViewById(R.id.prixmax);
 //faire ici le code
 
-/*
-        if(!mdpS.equals(mdpconfS)){
+
+        if(!mdpS.equals(mdpconfS)) {
             mdp.setText("");
             mdpconf.setText("");
+            mdp.setHintTextColor(getResources().getColor(R.color.red));
+            mdpconf.setHintTextColor(getResources().getColor(R.color.red));
             makeText(getApplicationContext(), "les mot de passe ne sont pas identiques", LENGTH_LONG).show();
-
-        }else{*/
+        }
+        else if(villeS.equals("") | adresseS.equals("") | mdpS.equals("") | nomS.equals("") | prenomS.equals("") | mailS.equals("")){
+            makeText(getApplicationContext(), "Il faut remplir tout les champs", LENGTH_LONG).show();
+        } else if(codePS<999 | codePS>10000 ) {
+            codeP.setText("");
+            codeP.setHintTextColor(getResources().getColor(R.color.red));
+            makeText(getApplicationContext(), "code postal invalide", LENGTH_LONG).show();
+        }else {
             makeText(getApplicationContext(), "vous etes enregistré", LENGTH_LONG).show();
             Intent intent = new Intent(InscriptionBarbier.this, Jesuis.class);
             startActivity(intent);
-        //}
+        }
     }
 }

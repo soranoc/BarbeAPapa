@@ -19,13 +19,14 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/email"
+        android:id="@+id/login"
         android:hint="email"
         android:layout_below="@+id/logo"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/logo"
-        android:layout_alignEnd="@+id/logo" />
+        android:layout_alignEnd="@+id/logo"
+        android:textColorHint="#ffffff" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -34,17 +35,18 @@
         android:ems="10"
         android:id="@+id/mdp"
         android:hint="Mot de passe"
-        android:layout_below="@+id/email"
+        android:layout_below="@+id/login"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/email"
-        android:layout_alignEnd="@+id/email" />
+        android:layout_alignRight="@+id/login"
+        android:layout_alignEnd="@+id/login"
+        android:textColorHint="#ffffff" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login"
-        android:id="@+id/login"
+        android:id="@+id/button"
         android:onClick="doLogin"
         android:textColor="#ffffff"
         android:background="@drawable/rose"

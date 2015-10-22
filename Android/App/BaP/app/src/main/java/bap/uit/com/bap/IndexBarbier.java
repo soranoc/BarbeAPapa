@@ -47,7 +47,7 @@ public class IndexBarbier extends AppCompatActivity {
             startActivity(intent2);
     }
     public void doLogin(View view){
-            Intent intent = new Intent(IndexBarbier.this, Login.class);
+            Intent intent = new Intent(IndexBarbier.this, LoginBarbier.class);
             startActivity(intent);
     }
 }

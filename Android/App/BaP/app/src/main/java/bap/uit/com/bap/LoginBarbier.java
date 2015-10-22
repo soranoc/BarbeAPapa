@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+
+import static android.widget.Toast.LENGTH_LONG;
+import static android.widget.Toast.makeText;
 
 public class LoginBarbier extends AppCompatActivity {
 
@@ -37,7 +41,18 @@ public class LoginBarbier extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     public void doLogin(View view){
+        String mdpS;
+        String loginS;
+        TextView login =null;
+        login = (TextView) findViewById(R.id.button);
+        loginS = login.getText()+"";
+
+        TextView mdp =null;
+        mdp = (TextView) findViewById(R.id.mdp);
+        mdpS = mdp.getText()+"";
         Intent intent = new Intent(LoginBarbier.this, EDT_Barbier.class);
+        makeText(getApplicationContext(), "Bonjour "+loginS+" et Bienvenue !", LENGTH_LONG).show();
+
         startActivity(intent);
     }
 }
