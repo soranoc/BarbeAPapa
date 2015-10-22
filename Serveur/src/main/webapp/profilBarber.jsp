@@ -44,10 +44,6 @@
 		  fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
 	</script>
-
-	<a href="javascript:open_infos()" target="blank"><img src="http://www.expert-juridique.fr/images/profile/lawyer/default.gif" alt="image profil" style="width:300px;heigth:300px"></a>
-	<div class="fb-like" data-href="profil.html" data-width="50" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
-	<br> 
 	<% 	
 	BDD bdd = new BDD();
 	List<Barber> barbers = bdd.getBarbers();	
@@ -59,9 +55,13 @@
 		}
 	}
 	%>
+
+	<a href="javascript:open_infos()" target="blank"><img src=<%barbe.getPhoto();%> alt="image profil" style="width:300px;heigth:300px"></a>
+	<div class="fb-like" data-href="profil.html" data-width="50" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
+	<br> 
         <p> Nom: <%out.println(barbe.getNom()); %></p>
         <p> Prenom: <%out.println(barbe.getPrenom()); %></p>
-		<p> Profession: <%out.println(barbe.getTypeDePrestation()); %>/p>
+		<p> Profession: <%out.println(barbe.getTypeDePrestation()); %></p>
   		<p> Entreprise: <%out.println(barbe.getEntreprise()); %></p>
         <p> Adresse de l'entreprise: <%out.println(barbe.getAdresse()); %></p>
         <p> Telephone: <%out.println(barbe.getTel()); %></p>
