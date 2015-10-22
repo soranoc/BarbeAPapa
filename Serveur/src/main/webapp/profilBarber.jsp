@@ -47,7 +47,7 @@
 
 	<a href="javascript:open_infos()" target="blank"><img src="http://www.expert-juridique.fr/images/profile/lawyer/default.gif" alt="image profil" style="width:300px;heigth:300px"></a>
 	<div class="fb-like" data-href="profil.html" data-width="50" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
-	<b> 
+	<br> 
 	<% 	
 	BDD bdd = new BDD();
 	List<Barber> barbers = bdd.getBarbers();	
