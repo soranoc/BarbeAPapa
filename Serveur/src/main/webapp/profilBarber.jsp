@@ -51,7 +51,7 @@
 	<% 	
 	BDD bdd = new BDD();
 	List<Barber> barbers = bdd.getBarbers();	
-	Barber barbe;
+	Barber barbe= null;
 	String login = request.getParameter("login");
 	for(int i=0; i<barbers.size(); ++i){
 		if (barbers.get(i).getMail().equals(login)){
