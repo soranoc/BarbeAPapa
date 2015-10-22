@@ -19,6 +19,7 @@ public class InscriptionBarbier extends AppCompatActivity {
         setContentView(R.layout.activity_inscription_barbier);
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -85,6 +86,7 @@ public class InscriptionBarbier extends AppCompatActivity {
         if(codePS.equals("")){
             codePS=1+"";
         }
+
         codePint=Integer.parseInt(codePS);
  // faire ici le code
 
