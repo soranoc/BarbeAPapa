@@ -24,15 +24,15 @@ public class Rdv extends Item {
 	}
 
 	public void setIdClient(int idClient) {
-		this.nom = nom;
+		this.idClient = idClient;
 	}
 
 	public int getIdBarber() {
 		return idBarber;
 	}
 
-	public void setIdBarber(String prenom) {
-		this.prenom = prenom;
+	public void setIdBarber(int idBarber) {
+		this.idBarber = idBarber;
 	}
 
 	public String getDate() {

@@ -23,18 +23,6 @@ public class Barber extends Item {
 	private String typeDePrestation; // Produits, services ou les deux?
 	private boolean valide;
 
-	/**
-	 * Constructeur
-	 * 
-	 * @param id
-	 *            du client
-	 * @param nom
-	 *            du client
-	 * @param prenom
-	 *            du client
-	 * @param entite
-	 *            de l'entreprise ou du commer�ant
-	 */
 	
 	public Barber(){}
 
@@ -228,17 +216,6 @@ public class Barber extends Item {
 
 	public void setDateNaiss(String dateNaiss) {
 		this.dateNaiss = dateNaiss;
-	}
-
-	@Override
-	public String getTitle() {
-		return "<span class='glyphicon glyphicon-user'></span> "+prenom+" "+nom;
-	}
-
-	///Renvoie le nom de la table dans laquelle doit �tre stock�e l'Item
-	@Override
-	public String getType() {
-		return "barbers";
 	}
 
 	public String getSite() {

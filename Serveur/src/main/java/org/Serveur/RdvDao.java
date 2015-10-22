@@ -11,7 +11,7 @@ import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapperFactory;
 import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 public interface RdvDao {
-	@SqlUpdate("create table rdv (idt integer primary key autoincrement, idClient integer, idBarber integer, date varchar(20), heure varchar(20)")
+	@SqlUpdate("create table rdv (idt integer primary key autoincrement, idClient integer, idBarber integer, date varchar(20), heure varchar(20))")
 	public void createRdvTable();
 
 	@SqlUpdate("insert into rdv (idClient, idBarber, date,  heure) values (:idClient, :idBarber, :date,  :heure)")
@@ -40,7 +40,7 @@ public interface RdvDao {
 	public int deleteClient(@Bind("idt") int idt);
 
 	@SqlUpdate("drop table if exists rdv")
-	public void dropClientTable();
+	public void dropRdvTable();
 
 	public void close();
 }
