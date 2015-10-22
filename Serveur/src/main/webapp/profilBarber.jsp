@@ -72,7 +72,7 @@
 
 	<a href="javascript:open_infos()" target="blank"><img src=<%out.println(barbe.getPhoto());%> alt="image profil" style="width:300px;heigth:300px"></a>
 	<div class="fb-like" data-href="profil.html" data-width="50" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
-	<br> 
+	<div class="descrip"><br> 
         <p> Nom: <%out.println(barbe.getNom()); %></p>
         <p> Prenom: <%out.println(barbe.getPrenom()); %></p>
 		<p> Profession: <%out.println(barbe.getTypeDePrestation()); %></p>
@@ -84,6 +84,7 @@
 					} %></p>
         <p> Mail: <%out.println(barbe.getMail()); %></p>
 	</b>
+	</div>
 	<img src="http://www.clementpellerin.fr/wp-content/uploads/2011/05/facebook-icon.png" alt="lien Facebook" style="width:50px;heigth:50px">
 	<img src="http://www.sidassport.com/docs/2280-1-logo-twitter-gif.gif" alt="lien Facebook" style="width:50px;heigth:50px">
 	<img src="http://www.uha.fr/images/google_icon" style="width:50px;heigth:50px">
