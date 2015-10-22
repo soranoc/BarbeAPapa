@@ -40,6 +40,12 @@ h1 small{
 	
 }
 
+#boutonConf{
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+}
+
 #descrip{
 	color: #fff;
 }
