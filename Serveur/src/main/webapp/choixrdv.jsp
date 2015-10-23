@@ -11,7 +11,7 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">	
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="style.css">
 
 <script
@@ -29,44 +29,59 @@
 
 	<br>
 	<div class="container">
-	<div class='page-header'>
-	<img id="header" src="http://img15.hostingpics.net/pics/270845pinkmoustache.png" />
-        <div class = "row">
+		<div class='page-header'>
+			<img id="header"
+				src="http://img15.hostingpics.net/pics/270845pinkmoustache.png" />
+			<div class="row">
 
-        <form class="navbar-form navbar" role="search">
-            <h1>Planifiez votre rendez-vous 
-            <div class="form-group">
-            <input type="text" class="col-sm-2 push-col-md-1 form-control" placeholder="Ville">
-        </div>
-                <button type="submit" class="btn btn-default">Rechercher</button>   
-            </h1>     
-
-        </form>
-        </div>
-    </div>
-    </div>
-    <div class='container'>
-	<div class="row">
-	<%for(int i=0; i<3 && i<barbers.size(); ++i){%>
-				<div class="col-sm-6 col-md-4">
-					<div id="thumbnailBarbier" class="thumbnail">
-					<form action='ServletRDV' method='post'>
-						<img id="thumbBarber" src="<%out.println(barbers.get(i).getPhoto());%>" class="img-responsive">
-						<input type="hidden" name="barbier" value="<%out.print(barbers.get(i).getEntreprise());%>">
-						<input type="hidden" name="mail" value="<%out.print(barbers.get(i).getMail());%>">
-						<div class="caption">
-							<h3><%out.println(barbers.get(i).getEntreprise()); %></h3>
-								<h4>Horaires</h4>
-								<div class="btn-group" role="group" aria-label="Horaires">
-  									<button type="submit" name="horaire" value="14h30" class="btn btn-default">14h30</button>
-  									<button type="submit" name="horaire" value="15h30" class="btn btn-default">15h30</button>
-  									<button type="submit" name="horaire" value="16h30" class="btn btn-default">16h30</button>
-								</div>
-							</div>
-						</form>
+				<form class="navbar-form navbar" role="search">
+					<h1>Planifiez votre rendez-vous</h1>
+					<div class="form-group">
+						<input type="text" class="col-sm-2 push-col-md-1 form-control"
+							placeholder="Ville">
 					</div>
-				</div>
- 	<%} %>					
+					<button type="submit" class="btn btn-default">Rechercher</button>
+					<a href="profil.jsp" class="nav navbar-nav navbar-right">Profil</a>
+				</form>
+			</div>
+		</div>
 	</div>
-    </div>
+	<div class='container'>
+		<div class="row">
+			<%
+				for (int i = 0; i < 3 && i < barbers.size(); ++i) {
+			%>
+			<div class="col-sm-6 col-md-4">
+				<div id="thumbnailBarbier" class="thumbnail">
+					<form action='ServletRDV' method='post'>
+						<img id="thumbBarber"
+							src="<%out.println(barbers.get(i).getPhoto());%>"
+							class="img-responsive"> <input type="hidden" name="barbier"
+							value="<%out.print(barbers.get(i).getEntreprise());%>"> <input
+							type="hidden" name="mail"
+							value="<%out.print(barbers.get(i).getMail());%>">
+						<div class="caption">
+							<h3>
+								<%
+									out.println(barbers.get(i).getEntreprise());
+								%>
+							</h3>
+							<h4>Horaires</h4>
+							<div class="btn-group" role="group" aria-label="Horaires">
+								<button type="submit" name="horaire" value="14h30"
+									class="btn btn-default">14h30</button>
+								<button type="submit" name="horaire" value="15h30"
+									class="btn btn-default">15h30</button>
+								<button type="submit" name="horaire" value="16h30"
+									class="btn btn-default">16h30</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<%
+				}
+			%>
+		</div>
+	</div>
 </body>

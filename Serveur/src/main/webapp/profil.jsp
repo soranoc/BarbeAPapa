@@ -1,7 +1,9 @@
 
 <%@ page import="java.util.List"%>
 <%@ page import="org.Serveur.BDD"%>
+<%@ page import="org.Serveur.Item"%>
 <%@ page import="org.Serveur.Barber"%>
+<%@ page import="org.Serveur.Client"%>
 
 <!DOCTYPE html>
 <html>
@@ -28,11 +30,20 @@
 <%
 	BDD bdd = new BDD();
 	List<Barber> barbers = bdd.getBarbers();
+	List<Client> clients = bdd.getClients();
 	Barber barber = null;
+	Client client = null;
 	String login = "angetheo@gmail.com";
 	for (int i = 0; i < barbers.size(); ++i) {
 		if (barbers.get(i).getMail().equals(login)) {
 			barber = barbers.get(i);
+		}
+	}
+	if (barber == null) {
+		for (int i = 0; i < clients.size(); ++i) {
+			if (clients.get(i).getMail().equals(login)) {
+				client = clients.get(i);
+			}
 		}
 	}
 %>
@@ -42,12 +53,20 @@
 		<div class="page-header">
 			<h1>
 				<%
-					out.print(barber.getEntreprise());
-				%><small> Profil</small>  
-				<img id="moustache" src="http://img4.hostingpics.net/pics/366706moustache.png">
+					if (barber != null) {
+						out.print(barber.getEntreprise());
+					} else {
+						out.print(client.getPrenom() + " " + client.getNom());
+					}
+				%><small> Profil</small> <img id="moustache"
+					src="http://img4.hostingpics.net/pics/366706moustache.png">
 			</h1>
 		</div>
 	</div>
+
+	<%
+		if (barber != null) {
+	%>
 	<div class="container">
 		<div class="row">
 			<div class="container">
@@ -86,5 +105,49 @@
 			</div>
 		</div>
 	</div>
+	<%
+		} else {
+	%>
+	<div class="container">
+		<div class="row">
+			<div class="container">
+				<div class="col-xs-6 col-md-3">
+					<a id=profilepic href="#" class="thumbnail"> <img
+						src="<%out.print(client.getPhoto());%>" alt="">
+					</a>
+				</div>
+			</div>
+			<div class="container">
+				<div class="col-xs-6 col-md-6">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3>Coordonnées</h3>
+						</div>
+						<div class="panel-body">
+							<h4>Téléphone</h4>
+							<%
+								out.print(client.getTel());
+							%><br>
+							<h4>E-Mail</h4>
+							<%
+								out.print(client.getMail());
+							%><br>
+							<h4>Ville</h4>
+							<%
+								out.print(client.getVille());
+							%><br>
+							<h4>Adresse</h4>
+							<%
+								out.print(client.getAdresse());
+							%><br>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<%
+		}
+	%>
 </body>
 </html>
