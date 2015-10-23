@@ -1,11 +1,14 @@
 package org.Serveur;
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 
@@ -23,6 +26,10 @@ public class ClientResource {
 		return client;
 	}
 	
+	private ClientDao getDao() {
+		return Init.getInstance().getClientDao();
+	}
+	
 	@GET
 	@Path("/{id}")
 	public Client getClient(@PathParam("id") int idt) {
@@ -32,9 +39,8 @@ public class ClientResource {
 		}
 		return client;
 	}
-
-    	@GET
 	public List<Client> getAllCLient() {
 		return getDao().listerClients();
 	}
 }
+

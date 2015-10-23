@@ -46,5 +46,12 @@ public class BarberResource {
 		}
 		return getDao().listerBarbers();
 	}
-
+	
+	@GET
+	@Path("/login")
+	public Barber login(@QueryParam("login") String login, @QueryParam("mdp") String mdp)
+	{
+		return null;
+	}
 }
+

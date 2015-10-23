@@ -1,11 +1,14 @@
 package org.Serveur;
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 
@@ -21,6 +24,10 @@ public class RdvResource {
 		return rdv;
 	}
 	
+	private RdvDao getDao() {
+		return Init.getInstance().getRdvDao();
+	}
+	
 	@GET
 	@Path("/{id}")
 	public Rdv getRdv(@PathParam("id") int idt) {
@@ -30,13 +37,30 @@ public class RdvResource {
 		}
 		return rdv;
 	}
+	
+	@GET
+	public List<Rdv> getAllRdv(@QueryParam("idbarber") String idBarbier, @QueryParam("idclient") String idClient) {
+		if (idBarbier != null) {
+			return getDao().listerRdvByBarber(Integer.valueOf(idBarbier));
+		}
+		else if (idClient != null) {
+			return getDao().listerRdvByClient(Integer.valueOf(idClient));
+		}
+		return null;
+	}
+
 
     	@GET
-	public List<Rdv> getRdvs(@QueryParam("idBarber") String idBbarbier, @QueryParam("client") String client) {
-		if (barbier != null) {
-		    return getDao().listerRdvByBarber(Interger.valueof(idBarbier);
+	public List<Rdv> getRdvs(@QueryParam("idBarber") String idBarbier, @QueryParam("client") String idClient) {
+		if (idBarbier != null) {
+		    return getDao().listerRdvByBarber(Integer.valueOf(idBarbier));
 		}
-		return getDao().listerBarbers();
+		else if(idClient != null){
+			return getDao().listerRdvByClient(Integer.valueOf(idClient));
+
+		}
+		return null;
 	}
 
 }
+
