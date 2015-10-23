@@ -46,6 +46,9 @@
 			}
 		}
 	}
+	if(barber==null && client==null){
+		response.sendRedirect("accueil.jsp");
+	}
 %>
 
 <body>

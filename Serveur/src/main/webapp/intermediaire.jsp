@@ -14,35 +14,46 @@
 <script src="verification.js"></script>
 <title>Barbu</title>
 </head>
+<%
+	String user = request.getParameter("type");
+	if (user == null) {
+		response.sendRedirect("accueil.jsp");
+	}
+%>
 <body>
 	<br>
 	<br>
 	<br>
-	<img id="header" src="http://img15.hostingpics.net/pics/270845pinkmoustache.png" />
+	<img id="header"
+		src="http://img15.hostingpics.net/pics/270845pinkmoustache.png" />
 
 	<div class="row">
 		<div>
 			<form style="text-align: center" name="FormBConnexion"
 				class="navbar-form" action="connexion.jsp" />
-			<br><br>
-			<input type="submit" id="buttonBB"
-				class="btn btn-default btn-lg" value="Connexion"> <br>
+			<br>
+			<br><input type="submit" id="buttonBB"
+				class="btn btn-default btn-lg" value="Connexion"><br><br>
 			</form>
-			<%if (request.getParameter("type").equals("Je suis un barbier")){%>
+			<%
+				if (request.getParameter("type").equals("Je suis un barbier")) {
+			%>
 			<form style="text-align: center" name="FormBInscription"
 				class="navbar-form" action="formulaireBarber.jsp" />
-			<br>
-			<input type="submit" id="buttonBB"
-				class="btn btn-default btn-lg" value="Inscription"> <br>
+			<input type="submit" id="buttonBB" class="btn btn-default btn-lg"
+				value="Inscription"><br>
 			</form>
-			<%}else if(request.getParameter("type").equals("Je suis un barbu")){%>
+			<%
+				} else if (request.getParameter("type").equals("Je suis un barbu")) {
+			%>
 			<form style="text-align: center" name="FormBInscription"
 				class="navbar-form" action="formulaireClient.jsp" />
-			<br>
-			<input type="submit" id="buttonBB"
-				class="btn btn-default btn-lg" value="Inscription"> <br>
+			<input type="submit" id="buttonBB" class="btn btn-default btn-lg"
+				value="Inscription"><br>
 			</form>
-			<%}%>
+			<%
+				}
+			%>
 		</div>
 	</div>
 </body>
