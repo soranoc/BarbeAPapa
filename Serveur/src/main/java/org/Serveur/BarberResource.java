@@ -1,5 +1,7 @@
 package org.Serveur;
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -16,19 +18,28 @@ public class BarberResource {
 
 	@POST
 	public Barber createBarber(Barber barber) {
-		int id = Init.getInstance().getBarberDao().insert(barber);
+		int id = getDao().insert(barber);
 		barber.setIdt(id);
 		return barber;
+	}
+
+	private BarberDao getDao() {
+		return Init.getInstance().getBarberDao();
 	}
 	
 	@GET
 	@Path("/{id}")
 	public Barber getBarber(@PathParam("id") int idt) {
-		Barber barber = Init.getInstance().getBarberDao().findByIdt(idt);
+		Barber barber = getDao().findByIdt(idt);
 		if (barber == null) {
 			throw new WebApplicationException(404);
 		}
 		return barber;
+	}
+	
+	@GET
+	public List<Barber> getAllBarber() {
+		return getDao().listerBarbers();
 	}
 
 }
