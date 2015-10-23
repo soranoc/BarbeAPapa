@@ -2,19 +2,18 @@ package bap.uit.com.bap;
 
 
 import android.app.Activity;
-import android.app.ActivityOptions;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import org.w3c.dom.Entity;
+import org.w3c.dom.*;
 
-import java.util.List;
-
-import static android.widget.Toast.*;
+import static android.widget.Toast.LENGTH_LONG;
+import static android.widget.Toast.makeText;
 
 public class Register extends Activity
 {
@@ -120,7 +119,34 @@ public class Register extends Activity
 
 
 
+    public Boolean register (Barber member) {
+        Entity<Barber> memberEntity = Entity.entity(member, MediaType.APPLICATION_JSON);
+
+        return ClientBuilder.newClient()
+                .target("http://37.59.171.4/v1/memberdb/login")
+                .request()
+                .post(memberEntity)
+                .readEntity(Boolean.class);
+    }
+/*
     public Boolean register (Barber barber) {
+
+
+        return ClientBuilder.newClient()
+                .target("http://37.59.171.4/v1/memberdb/login")
+                .request()
+                .post(memberEntity)
+                .readEntity(Boolean.class);
+    }
+
+        /*
+        Barber barber = new Barber();
+        barber.setNom("foo");
+        Entity<Barber> barberEntity = Entity.entity(barber,
+                MediaType.APPLICATION_JSON);
+        Barber savedBarber = target("/barber").request().post(barberEntity)
+                .readEntity(Barber.class);
+        /*
           List<Barber> barberList = getAllBarber(barber, MediaType.APPLICATION_JSON);
 
           return ClientBuilder.newClient()
@@ -128,7 +154,7 @@ public class Register extends Activity
                 .request()
                 .post(memberEntity)
                 .readEntity(Boolean.class);
-        }
+        }*/
 
         public void doSubmit(View view){
          Intent intent = new Intent(Register.this,MainActivity.class);

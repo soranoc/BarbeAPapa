@@ -37,7 +37,7 @@ public class RDV extends AppCompatActivity {
 
         // ici trouver la liste de barbier
 
-        
+
         Spinner spin=(Spinner)findViewById(R.id.spinner);
         ArrayAdapter<String> aa=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,items);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
