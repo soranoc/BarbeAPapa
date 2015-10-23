@@ -32,7 +32,7 @@
 				<img id="moustache" src="http://img4.hostingpics.net/pics/366706moustache.png"></h1>
 			</h1>
 		</div>
-		<form method='post' action='ServletRegisterBarber'
+		<form method='post' action='FormulaireBarber'
 			enctype='multipart/form-data' action='fup.cgi'>
 
 			<div class='row'>

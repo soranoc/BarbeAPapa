@@ -1,9 +1,9 @@
 
 <%@ page import="java.util.List"%>
-<%@ page import="org.Serveur.BDD"%>
-<%@ page import="org.Serveur.Item"%>
-<%@ page import="org.Serveur.Barber"%>
-<%@ page import="org.Serveur.Client"%>
+<%@ page import="bdd.BDD"%>
+<%@ page import="bdd.Item"%>
+<%@ page import="bdd.Barber"%>
+<%@ page import="bdd.Client"%>
 
 <!DOCTYPE html>
 <html>

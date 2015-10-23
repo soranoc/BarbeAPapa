@@ -11,6 +11,9 @@ import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Before;
 import org.junit.Test;
 
+import bdd.Init;
+import bdd.Rdv;
+
 public class RdvTest extends JerseyTest{
 	
 	@Override

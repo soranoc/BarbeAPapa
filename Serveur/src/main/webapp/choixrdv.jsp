@@ -1,7 +1,14 @@
 <%@ page import="java.util.List"%>
-<%@ page import="org.Serveur.BDD"%>
-<%@ page import="org.Serveur.Barber"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="bdd.BDD"%>
+<%@ page import="bdd.Barber"%>
+<%@ page import="bdd.Init"%>
 <%@ page import="javax.servlet.http.*"%>
+<%@ page import="javax.ws.rs.core.GenericType"%>
+<%@ page import="javax.ws.rs.WebApplicationException"%>
+<%@ page import="javax.ws.rs.client.Entity"%>
+<%@ page import="javax.ws.rs.core.Application"%>
+<%@ page import="javax.ws.rs.core.MediaType"%>
 
 <html>
 <head>
@@ -22,8 +29,13 @@
 </head>
 
 <%
+	String recherche = request.getParameter("search");
 	BDD bdd = new BDD();
 	List<Barber> barbers = bdd.getBarbers();
+	//Méthode Java remplaçant la méthode JSON qui ne marche pas
+	if(recherche!=null){
+		barbers = Init.getInstance().getBarberDao().search("%"+recherche+"%");
+	}
 	String login = request.getParameter("login");
 %>
 
@@ -36,15 +48,16 @@
 				src="http://img15.hostingpics.net/pics/270845pinkmoustache.png" />
 			<div class="row">
 
-				<form class="navbar-form navbar" role="search">
+				<form class="navbar-form navbar" role="search" action="choixrdv.jsp" method="get">
 					<h1>
 						Planifiez votre rendez-vous
 						<div class="form-group">
-							<input type="text" class="col-sm-2 push-col-md-1 form-control"
-								placeholder="Ville">
+							<input type="text" name="search" class="col-sm-2 push-col-md-1 form-control"
+								placeholder="Recherche">
 						</div>
 						<button type="submit" class="btn btn-default">Rechercher</button>
-						<a class="btn btn-default" href="profil.jsp?login=<%out.print(login);%>" role="button">Profil</a>
+						<a class="btn btn-default"
+							href="profil.jsp?login=<%out.print(login);%>" role="button">Profil</a>
 					</h1>
 				</form>
 			</div>
@@ -53,7 +66,15 @@
 	<div class='container'>
 		<div class="row">
 			<%
-				for (int i = 0; i < 3 && i < barbers.size(); ++i) {
+				for (int i = 0; i < barbers.size(); ++i) {
+					if (i % 3 == 0) {
+			%>
+		</div>
+	</div>
+	<div class='container'>
+		<div class="row">
+			<%
+				}
 			%>
 			<div class="col-sm-6 col-md-4">
 				<div id="thumbnailBarbier" class="thumbnail">

@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bdd.Barber;
+import bdd.Client;
+import bdd.Init;
+
 
 @WebServlet("Authen")
 public class Authen extends HttpServlet {

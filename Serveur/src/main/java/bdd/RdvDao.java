@@ -1,4 +1,4 @@
-package org.Serveur;
+package bdd;
 
 import java.util.List;
 

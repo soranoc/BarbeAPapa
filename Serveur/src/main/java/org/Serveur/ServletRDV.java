@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bdd.Barber;
+import bdd.Init;
+import bdd.Rdv;
+
 @WebServlet("ServletRDV")
 public class ServletRDV extends HttpServlet {
 

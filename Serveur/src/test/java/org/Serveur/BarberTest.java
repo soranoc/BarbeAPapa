@@ -14,6 +14,9 @@ import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Before;
 import org.junit.Test;
 
+import bdd.Barber;
+import bdd.Init;
+
 public class BarberTest extends JerseyTest {
 
 	@Override

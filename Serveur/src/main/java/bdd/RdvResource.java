@@ -1,4 +1,4 @@
-package org.Serveur;
+package bdd;
 
 import java.util.List;
 
@@ -12,6 +12,8 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 
+
+
 @Path("/rdv")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
@@ -23,11 +25,11 @@ public class RdvResource {
 		rdv.setIdt(id);
 		return rdv;
 	}
-	
+
 	private RdvDao getDao() {
 		return Init.getInstance().getRdvDao();
 	}
-	
+
 	@GET
 	@Path("/{id}")
 	public Rdv getRdv(@PathParam("id") int idt) {
@@ -37,30 +39,28 @@ public class RdvResource {
 		}
 		return rdv;
 	}
-	
+
 	@GET
-	public List<Rdv> getAllRdv(@QueryParam("idbarber") String idBarbier, @QueryParam("idclient") String idClient) {
+	public List<Rdv> getAllRdv(@QueryParam("idbarber") String idBarbier,
+			@QueryParam("idclient") String idClient) {
 		if (idBarbier != null) {
 			return getDao().listerRdvByBarber(Integer.valueOf(idBarbier));
-		}
-		else if (idClient != null) {
+		} else if (idClient != null) {
 			return getDao().listerRdvByClient(Integer.valueOf(idClient));
 		}
 		return null;
 	}
 
-
-    	@GET
-	public List<Rdv> getRdvs(@QueryParam("idBarber") String idBarbier, @QueryParam("client") String idClient) {
-		if (idBarbier != null) {
-		    return getDao().listerRdvByBarber(Integer.valueOf(idBarbier));
-		}
-		else if(idClient != null){
-			return getDao().listerRdvByClient(Integer.valueOf(idClient));
-
-		}
-		return null;
-	}
+//	@GET
+//	public List<Rdv> getRdvs(@QueryParam("idBarber") String idBarbier,
+//			@QueryParam("client") String idClient) {
+//		if (idBarbier != null) {
+//			return getDao().listerRdvByBarber(Integer.valueOf(idBarbier));
+//		} else if (idClient != null) {
+//			return getDao().listerRdvByClient(Integer.valueOf(idClient));
+//
+//		}
+//		return null;
+//	}
 
 }
-

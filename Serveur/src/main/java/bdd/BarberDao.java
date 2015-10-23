@@ -1,4 +1,4 @@
-package org.Serveur;
+package bdd;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ import org.skife.jdbi.v2.sqlobject.SqlQuery;
 import org.skife.jdbi.v2.sqlobject.SqlUpdate;
 import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapperFactory;
 import org.skife.jdbi.v2.tweak.BeanMapperFactory;
+
 
 public interface BarberDao {
 	@SqlUpdate("create table barbers (idt integer primary key autoincrement, photo varchar(255), nom varchar(100), prenom varchar(100), entreprise varchar(100), site varchar(100), adresse varchar(100), codePostal varchar(5),ville varchar(100), mail varchar(100), mdp varchar(40), dateNaiss varchar(20), tel varchar(20), fax varchar(20),   description varchar(500), facebook varchar(100), twitter varchar(100), linkedIn varchar(100), googlePlus varchar(100), typeDePrestation varchar(100), valide boolean)")

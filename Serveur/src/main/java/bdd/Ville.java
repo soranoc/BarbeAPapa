@@ -1,4 +1,4 @@
-package org.Serveur;
+package bdd;
 public class Ville {
 	private String cp;
 	private String ville;

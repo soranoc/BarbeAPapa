@@ -1,4 +1,4 @@
-package org.Serveur;
+package bdd;
 
 import org.skife.jdbi.v2.DBI;
 import org.sqlite.SQLiteDataSource;
@@ -141,7 +141,7 @@ public class Init {
 				       "www.moustacheshop.fr", "26 Boulevard de Michel", "12121",
 				       "Lille", "barbapapatest2@gmail.com", "bptest1", "17/01/1994",
 				       "0606060606", null,
-				       "La moustache, c'est pas tâche.",
+				       "La moustache, c'est pas tï¿½che.",
 				       "moustacheshop.facebook.com", null, null, null,
 				       "Coiffeur/Barbier", true));
 		bDao.insert(new Barber(-1, "http://www.taillersabarbe.fr/wp-content/uploads/2015/06/barbe-Nicolas-II.jpg", "Kilou", "Tout", "Seville",
@@ -162,7 +162,7 @@ public class Init {
 				       "www.hardbarbe.fr", "37 rue des bisounours", "59000",
 				       "Villeneuve d'Ascq", "angetheo@gmail.com", "anget", "20/20/2020",
 				       "06010003030", null,
-				       "Nous on le fait et on le fait à fond.",
+				       "Nous on le fait et on le fait ï¿½ fond.",
 				       "hardbarbe.facebook.com", null, null, null,
 				       "Barbier", true));
 		bDao.insert(new Barber(-1, "http://www.taillersabarbe.fr/wp-content/uploads/2015/06/barbe-Nicolas-II.jpg", "Coco", "Lasticot", "Barbapapa",

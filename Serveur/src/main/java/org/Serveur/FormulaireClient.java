@@ -20,6 +20,9 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FilenameUtils;
 
+import bdd.Client;
+import bdd.Init;
+
 @WebServlet("FormulaireClient")
 public class FormulaireClient extends HttpServlet {
 

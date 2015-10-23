@@ -1,4 +1,4 @@
-package org.Serveur;
+package bdd;
 
 abstract public class Item {
 	int idt;
