@@ -1,6 +1,8 @@
 package bap.uit.com.bap;
 
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,9 +12,12 @@ import android.view.View;
 import android.widget.TextView;
 
 
+import java.util.List;
+
 import static android.widget.Toast.*;
 
-public class Register extends AppCompatActivity {
+public class Register extends Activity
+{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,22 +117,23 @@ public class Register extends AppCompatActivity {
             startActivity(intent);
         }
     }
-}
-/*
 
-public Boolean register (Member member) {
-        Entity<Member> memberEntity = Entity.entity(member, MediaType.APPLICATION_JSON);
 
-        return ClientBuilder.newClient()
-                .target("http://37.59.171.4/v1/memberdb/login")
+
+    public Boolean register (Barber barber) {
+          List<Barber> barberList = getAllBarber(barber, MediaType.APPLICATION_JSON);
+
+          return ClientBuilder.newClient()
+                .target("http://46.105.59.176/v1/odbc/login")
                 .request()
                 .post(memberEntity)
                 .readEntity(Boolean.class);
-    }
+        }
 
-    public void doSubmit(View view){
-        Intent intent = new Intent(Register.this,MainActivity.class);
-        startActivity(intent);
+        public void doSubmit(View view){
+         Intent intent = new Intent(Register.this,MainActivity.class);
+         startActivity(intent);
 
+        }
     }
-}*/
+}
