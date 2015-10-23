@@ -32,4 +32,9 @@ public class ClientResource {
 		}
 		return client;
 	}
+
+    	@GET
+	public List<Client> getAllCLient() {
+		return getDao().listerClients();
+	}
 }
