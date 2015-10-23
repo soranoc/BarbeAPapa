@@ -2,9 +2,12 @@ package org.Serveur;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.List;
+
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.Application;
+import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 
 import org.glassfish.jersey.test.JerseyTest;
@@ -36,18 +39,35 @@ public class BarberTest extends JerseyTest {
 
 	@Test
 	public void should_return_good_barber() {
-		Barber barber = new Barber();
-		barber.setNom("foobar");
-		Entity<Barber> barberEntity = Entity.entity(barber,
-				MediaType.APPLICATION_JSON);
-		Barber savedBarber = target("/barber").request().post(barberEntity)
-				.readEntity(Barber.class);
+		Barber savedBarber = createBarber();
 
 		Barber readBarber = target("/barber/" + savedBarber.getIdt()).request()
 				.get(Barber.class);
 		assertEquals("foobar", readBarber.getNom());
 	}
 	
+	@Test
+	public void should_return_2_barber() {
+		createBarber();
+		createBarber("footest");
+		createBarber("bartest");
+		List<Barber> barbers = target("/barber").queryParam("q", "foo").request().get(new GenericType<List<Barber>>(){});
+		assertEquals(2, barbers.size());
+	}
+
+	private Barber createBarber() {
+		return createBarber("foobar");	
+	}
+	
+	private Barber createBarber(String entreprise){
+			Barber barber = new Barber();
+		barber.setEntreprise(entreprise);
+		Entity<Barber> barberEntity = Entity.entity(barber,
+				MediaType.APPLICATION_JSON);
+		Barber savedBarber = target("/barber").request().post(barberEntity)
+				.readEntity(Barber.class);
+		return savedBarber;
+	}
 
 	@Test(expected=WebApplicationException.class)
 	public void should_return_404_when_barber_does_not_exist() {
@@ -56,4 +76,6 @@ public class BarberTest extends JerseyTest {
 				.get(Barber.class);
 		assertEquals("foobar", readBarber.getNom());
 	}
+	
+	
 }

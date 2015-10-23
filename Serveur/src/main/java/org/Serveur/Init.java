@@ -104,7 +104,7 @@ public class Init {
 
 		bDao.insert(new Barber(-1, "http://www.taillersabarbe.fr/wp-content/uploads/2015/06/barbe-Nicolas-II.jpg", "Axel", "Monnier", "Mousta'shop",
 				"www.moustashop.fr", "26 Avenue du colonel Moutarde", "12121",
-				"Lelle", "barbapapatest1@gmail.com", "bptest1", "17/01/1994",
+				"Lille", "barbapapatest1@gmail.com", "bptest1", "17/01/1994",
 				"0606060606", null,
 				"J'aime les grosses moustaches bien stylées.",
 				"moustashop.facebook.com", null, null, null,

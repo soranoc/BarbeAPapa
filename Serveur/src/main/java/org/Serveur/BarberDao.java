@@ -2,8 +2,6 @@ package org.Serveur;
 
 import java.util.List;
 
-import org.Serveur.Barber;
-
 import org.skife.jdbi.v2.sqlobject.Bind;
 import org.skife.jdbi.v2.sqlobject.BindBean;
 import org.skife.jdbi.v2.sqlobject.GetGeneratedKeys;
@@ -38,9 +36,13 @@ public interface BarberDao {
 	@RegisterMapperFactory(BeanMapperFactory.class)
 	public List<Barber> listerBarbers();
 	
-	@SqlQuery("select * from barbers where nom = :nom order by ville, nom")
+	@SqlQuery("select * from barbers where ville = :ville")
 	@RegisterMapperFactory(BeanMapperFactory.class)
-	public List<Barber> searchByName(@Bind("nom") String nom);
+	public List<Barber> listerBarbersByVille(@Bind("ville") String ville);
+		
+	@SqlQuery("select * from barbers where entreprise like :query or ville like :query")
+	@RegisterMapperFactory(BeanMapperFactory.class)
+	public List<Barber> search(@Bind("query") String query);
 	
 	@SqlQuery("select * from barbers where mail = :mail")
 	@RegisterMapperFactory(BeanMapperFactory.class)
