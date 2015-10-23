@@ -113,3 +113,21 @@ public class Register extends AppCompatActivity {
         }
     }
 }
+/*
+
+public Boolean register (Member member) {
+        Entity<Member> memberEntity = Entity.entity(member, MediaType.APPLICATION_JSON);
+
+        return ClientBuilder.newClient()
+                .target("http://37.59.171.4/v1/memberdb/login")
+                .request()
+                .post(memberEntity)
+                .readEntity(Boolean.class);
+    }
+
+    public void doSubmit(View view){
+        Intent intent = new Intent(Register.this,MainActivity.class);
+        startActivity(intent);
+
+    }
+}*/
