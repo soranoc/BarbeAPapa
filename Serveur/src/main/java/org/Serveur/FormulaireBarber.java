@@ -44,11 +44,9 @@ public class FormulaireBarber extends HttpServlet {
 					if ("mail2".equals(fieldname)) {
 						mail2 = fieldvalue;
 					}
-
 					if ("password2".equals(fieldname)) {
 						password2 = fieldvalue;
 					}
-
 					if ("nom".equals(fieldname)) {
 						barber.setNom(fieldvalue);
 					}
@@ -58,6 +56,9 @@ public class FormulaireBarber extends HttpServlet {
 					if ("date".equals(fieldname)) {
 						barber.setDateNaiss(fieldvalue);
 					}
+					if ("photo".equals(fieldname)) {
+						barber.setPhoto(fieldvalue);
+					}
 					if ("adresse".equals(fieldname)) {
 						barber.setAdresse(fieldvalue);
 					}
@@ -66,9 +67,6 @@ public class FormulaireBarber extends HttpServlet {
 					}
 					if ("ville".equals(fieldname)) {
 						barber.setVille(fieldvalue);
-					}
-					if ("date".equals(fieldname)) {
-						barber.setDateNaiss(fieldvalue);
 					}
 					if ("entreprise".equals(fieldname)) {
 						barber.setEntreprise(fieldvalue);

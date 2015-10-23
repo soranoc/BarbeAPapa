@@ -93,7 +93,7 @@
 				<div class='col-md-4 col-sm-offset-1'>
 					<div
 						class='form-group <%out.println(request.getAttribute("warning"));%>'>
-						<label for='nom'>Photo : </label><input type='url' value=''
+						<label for='photo'>Photo : </label><input type='url' value=''
 							name='photo' placeholder='http://ma-photo.jpg' required
 							class='form-control'>
 					</div>
@@ -122,8 +122,8 @@
 					<div class='form-group'>
 						<label for='codep'>Code Postal : </label> <input type='text'
 							class='form-control' id='cp'
-							value="<%out.println(ServletHelper.getValue("codePostal", params));%>"
-							name='codePostal' required>
+							value="<%out.println(ServletHelper.getValue("codep", params));%>"
+							name='codep' required>
 					</div>
 				</div>
 
@@ -177,8 +177,8 @@
 					<div class='form-group'>
 						<label for='password'>Mot de passe : </label> <input
 							type='password' class='form-control'
-							value="<%out.println(ServletHelper.getValue("mdp", params));%>"
-							name='mdp' required>
+							value="<%out.println(ServletHelper.getValue("password", params));%>"
+							name='password' required>
 					</div>
 				</div>
 
@@ -187,8 +187,8 @@
 						class='form-group <%out.println(request.getAttribute("passwdconf"));%>'>
 						<label for='password2'>Confirmer Mot de passe : </label> <input
 							type='password' class='form-control'
-							value="<%out.println(ServletHelper.getValue("mdp2", params));%>"
-							name='mdp2' required>
+							value="<%out.println(ServletHelper.getValue("password2", params));%>"
+							name='password2' required>
 					</div>
 				</div>
 			</div>

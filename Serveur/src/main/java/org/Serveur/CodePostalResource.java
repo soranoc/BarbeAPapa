@@ -37,9 +37,7 @@ public class CodePostalResource {
 			String ligne;
 			while ((ligne = br.readLine()) != null) {
 				if (!ligne.substring(0,1).equals("#")) {
-					System.out.println(ligne);
 					String[] tab = ligne.split(";");
-					System.out.println((tab[0]+tab[1]).toString());
 					code.add(tab[0]);
 					ville.add(tab[1]);
 				}

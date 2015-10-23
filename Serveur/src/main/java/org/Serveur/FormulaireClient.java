@@ -44,11 +44,9 @@ public class FormulaireClient extends HttpServlet {
 					if ("mail2".equals(fieldname)) {
 						mail2 = fieldvalue;
 					}
-
 					if ("password2".equals(fieldname)) {
 						password2 = fieldvalue;
 					}
-
 					if ("nom".equals(fieldname)) {
 						client.setNom(fieldvalue);
 					}
@@ -58,6 +56,9 @@ public class FormulaireClient extends HttpServlet {
 					if ("date".equals(fieldname)) {
 						client.setDateNaiss(fieldvalue);
 					}
+					if ("photo".equals(fieldname)) {
+						client.setPhoto(fieldvalue);
+					}
 					if ("adresse".equals(fieldname)) {
 						client.setAdresse(fieldvalue);
 					}
@@ -66,9 +67,6 @@ public class FormulaireClient extends HttpServlet {
 					}
 					if ("ville".equals(fieldname)) {
 						client.setVille(fieldvalue);
-					}
-					if ("date".equals(fieldname)) {
-						client.setDateNaiss(fieldvalue);
 					}
 					if ("mail".equals(fieldname)) {
 						client.setMail(fieldvalue);
@@ -93,6 +91,8 @@ public class FormulaireClient extends HttpServlet {
 
 		// Checkout
 
+		System.out.println(mail2);
+		System.out.println("<pablo>"+password2);
 		String emailconf = "";
 		String passwdconf = "";
 		String warning = "";
