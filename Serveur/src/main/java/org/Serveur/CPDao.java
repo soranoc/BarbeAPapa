@@ -13,12 +13,12 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 public interface CPDao {
 	
-	@SqlUpdate("create table CP (cp integer, ville text)")
+	@SqlUpdate("create table CP (cp text, ville text)")
 	void createCpTable();
 	
 	@SqlQuery("select * from cp where cp = :name")
     @RegisterMapperFactory(BeanMapperFactory.class)
-	List<Ville> findByName(@Bind("name") int name);
+	List<Ville> findByName(@Bind("name") String name);
 	
 	@SqlQuery("select * from cp order by cp")
 	@RegisterMapperFactory(BeanMapperFactory.class)
@@ -28,7 +28,7 @@ public interface CPDao {
 	void dropCpTable();
 	
 	@SqlBatch("insert into CP (cp, ville) values (:cp, :ville)")
-	void load(@Bind("cp") List<Integer> cp, @Bind("ville") List<String> ville);
+	void load(@Bind("cp") List<String> cp, @Bind("ville") List<String> ville);
 	
 	
 }

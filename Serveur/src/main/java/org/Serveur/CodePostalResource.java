@@ -16,30 +16,33 @@ import javax.ws.rs.core.MediaType;
 @Path("/cpdb")
 @Produces(MediaType.APPLICATION_JSON)
 public class CodePostalResource {
-	
-	private final InputStream fichier = getClass().getResourceAsStream("../../src/villes_france.csv");
-	
+
+	private final InputStream fichier = getClass().getResourceAsStream(
+			"../../villes_france.csv");
+
 	private static CPDao dao = Init.getInstance().getCPDao();
-	
+
 	/**
-	 * Permet d'envoyer les villes et les codes postaux à l'aide de la class
-	 * App et de la classe CPDao
+	 * Permet d'envoyer les villes et les codes postaux à l'aide de la class App
+	 * et de la classe CPDao
 	 */
 	public CodePostalResource() {
 		dao.dropCpTable();
 		dao.createCpTable();
-		List<Integer> code = new ArrayList<Integer>();
+		List<String> code = new ArrayList<String>();
 		List<String> ville = new ArrayList<String>();
-		
 		try {
-			InputStreamReader ipsr=new InputStreamReader(fichier);
-			BufferedReader br=new BufferedReader(ipsr);
+			InputStreamReader ipsr = new InputStreamReader(fichier);
+			BufferedReader br = new BufferedReader(ipsr);
 			String ligne;
-			while ((ligne=br.readLine())!=null){
-				String[] tab = ligne.split(",");
-				System.out.println(""+Integer.parseInt(tab[0])+tab[1]);
-				code.add(Integer.parseInt(tab[0]));
-				ville.add(tab[1]);
+			while ((ligne = br.readLine()) != null) {
+				if (!ligne.substring(0,1).equals("#")) {
+					System.out.println(ligne);
+					String[] tab = ligne.split(";");
+					System.out.println((tab[0]+tab[1]).toString());
+					code.add(tab[0]);
+					ville.add(tab[1]);
+				}
 			}
 			br.close();
 			dao.load(code, ville);
@@ -47,24 +50,27 @@ public class CodePostalResource {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * getCp retourne une liste ville comprenant son nom et son code postal
-	 * @param name correspond au code postal.
+	 * 
+	 * @param name
+	 *            correspond au code postal.
 	 * @return Liste de ville
 	 */
 	@GET
 	@Path("/{name}")
-	public List<Ville> getCp(@PathParam("name") int name) {
+	public List<Ville> getCp(@PathParam("name") String name) {
 		List<Ville> ville = dao.findByName(name);
 		if (ville == null) {
 			throw new WebApplicationException(404);
 		}
 		return ville;
 	}
-	
+
 	/**
 	 * getAllVill retourne toute les villes
+	 * 
 	 * @return liste de ville
 	 */
 	@GET
@@ -72,6 +78,4 @@ public class CodePostalResource {
 		return dao.all();
 	}
 
-
 }
-

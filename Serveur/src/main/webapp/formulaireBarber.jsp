@@ -74,6 +74,10 @@
 							class='form-control'>
 					</div>
 				</div>
+				<div id="descrip" class='col-md-4'>
+					<br>Les photos doivent respecter le format X par Y, et peser 1
+					Mo maximum.
+				</div>
 			</div>
 
 			<div class='row'>
@@ -286,7 +290,7 @@
 			});
 		});
 		function getVilles(cp) {
-			$.getJSON("v1/cpdb/" + cp, function(data) {
+			$.getJSON("v2/cpdb/" + cp, function(data) {
 				var html = "";
 				for ( var index = 0; index < data.length; ++index) {
 					html = html + "<option value='"+data[index].ville+"'>"

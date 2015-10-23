@@ -20,8 +20,8 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FilenameUtils;
 
-@WebServlet("FormulaireBarber")
-public class FormulaireBarber extends HttpServlet {
+@WebServlet("FormulaireClient")
+public class FormulaireClient extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	private OutputStream outStream;
@@ -29,7 +29,7 @@ public class FormulaireBarber extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 
-		Barber barber = new Barber();
+		Client client = new Client();
 		String password2 = "";
 		String mail2 = "";
 		try {
@@ -50,81 +50,39 @@ public class FormulaireBarber extends HttpServlet {
 					}
 
 					if ("nom".equals(fieldname)) {
-						barber.setNom(fieldvalue);
+						client.setNom(fieldvalue);
 					}
 					if ("prenom".equals(fieldname)) {
-						barber.setPrenom(fieldvalue);
+						client.setPrenom(fieldvalue);
 					}
 					if ("date".equals(fieldname)) {
-						barber.setDateNaiss(fieldvalue);
+						client.setDateNaiss(fieldvalue);
 					}
 					if ("adresse".equals(fieldname)) {
-						barber.setAdresse(fieldvalue);
+						client.setAdresse(fieldvalue);
 					}
 					if ("codep".equals(fieldname)) {
-						barber.setCodePostal(fieldvalue);
+						client.setCodePostal(fieldvalue);
 					}
 					if ("ville".equals(fieldname)) {
-						barber.setVille(fieldvalue);
+						client.setVille(fieldvalue);
 					}
 					if ("date".equals(fieldname)) {
-						barber.setDateNaiss(fieldvalue);
-					}
-					if ("entreprise".equals(fieldname)) {
-						barber.setEntreprise(fieldvalue);
-					}
-					if ("site".equals(fieldname)) {
-						if (!fieldvalue.equals("")) {
-							barber.setSite(fieldvalue);
-						}
+						client.setDateNaiss(fieldvalue);
 					}
 					if ("mail".equals(fieldname)) {
-						barber.setMail(fieldvalue);
+						client.setMail(fieldvalue);
 					}
 					if ("tel".equals(fieldname)) {
-						barber.setTel(fieldvalue);
-					}
-					if ("fax".equals(fieldname)) {
-						if (!fieldvalue.equals("")) {
-							barber.setFax(fieldvalue);
-						}
-					}
-					if ("prestation".equals(fieldname)) {
-						barber.setTypeDePrestation(fieldvalue);
-					}
-					if ("description".equals(fieldname)) {
-						if (!fieldvalue.equals("")) {
-							barber.setDescription(fieldvalue);
-						}
-					}
-					if ("facebook".equals(fieldname)) {
-						if (!fieldvalue.equals("")) {
-							barber.setFacebook(fieldvalue);
-						}
-					}
-					if ("linkedin".equals(fieldname)) {
-						if (!fieldvalue.equals("")) {
-							barber.setLinkedIn(fieldvalue);
-						}
-					}
-					if ("google".equals(fieldname)) {
-						if (!fieldvalue.equals("")) {
-							barber.setGooglePlus(fieldvalue);
-						}
-					}
-					if ("twitter".equals(fieldname)) {
-						if (!fieldvalue.equals("")) {
-							barber.setTwitter(fieldvalue);
-						}
+						client.setTel(fieldvalue);
 					}
 					if ("password".equals(fieldname)) {
-						barber.setMdp(fieldvalue);
+						client.setMdp(fieldvalue);
 					}
-					barber.setValide(true);
 				} else {
 					// Process form file field (input type="file").
 					String filename = FilenameUtils.getName(item.getName());
-					barber.setPhoto("/tmp/" + filename);
+					client.setPhoto("/tmp/" + filename);
 					InputStream filecontent = item.getInputStream();
 					writeFile(filecontent, filename);
 				}
@@ -139,12 +97,12 @@ public class FormulaireBarber extends HttpServlet {
 		String passwdconf = "";
 		String warning = "";
 		boolean checked = true;
-		if (!mail2.equals(barber.getMail())) {
+		if (!mail2.equals(client.getMail())) {
 			emailconf = "has-error";
 			warning = "has-warning";
 			checked = false;
 		}
-		if (!password2.equals(barber.getMdp())) {
+		if (!password2.equals(client.getMdp())) {
 			passwdconf = "has-error";
 			warning = "has-warning";
 			checked = false;
@@ -152,7 +110,7 @@ public class FormulaireBarber extends HttpServlet {
 
 		// redirection basique
 		if (checked == true) {
-			Init.getInstance().getBarberDao().insert(barber);
+			Init.getInstance().getClientDao().insert(client);
 			res.sendRedirect("choixrdv.jsp?login=" + mail2);
 		}
 		
@@ -162,7 +120,7 @@ public class FormulaireBarber extends HttpServlet {
 		req.setAttribute("passwdconf", passwdconf);
 		req.setAttribute("warning", warning);
 
-		RequestDispatcher rd = req.getRequestDispatcher("/formulaireBarber.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/formulaireClient.jsp");
 		rd.forward(req, res);
 	}
 

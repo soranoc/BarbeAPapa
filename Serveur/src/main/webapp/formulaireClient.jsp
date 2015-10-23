@@ -55,7 +55,7 @@
 					src="http://img4.hostingpics.net/pics/366706moustache.png">
 			</h1>
 		</div>
-		<form method='post' action='Formulaire2' enctype='multipart/form-data'
+		<form method='post' action='FormulaireClient' enctype='multipart/form-data'
 			action='fup.cgi'>
 
 			<div class='row'>
@@ -70,7 +70,7 @@
 
 				<div class='col-md-3'>
 					<div class='form-group'>
-						<label for='prenom'>Prï¿½nom : </label> <input type='text'
+						<label for='prenom'>Prénom : </label> <input type='text'
 							class='form-control'
 							value="<%out.println(ServletHelper.getValue("prenom", params));%>"
 							name='prenom' required>
@@ -99,7 +99,7 @@
 					</div>
 				</div>
 
-				<div class='col-md-4'>
+				<div id="descrip" class='col-md-4'>
 					<br>Les photos doivent respecter le format X par Y, et peser 1
 					Mo maximum.
 				</div>
@@ -164,7 +164,7 @@
 			<div class='row'>
 				<div class='col-md-4 col-sm-offset-1'>
 					<div class='form-group'>
-						<label for='tel'>Tï¿½lï¿½phone : </label> <input type='text'
+						<label for='tel'>Téléphone : </label> <input type='text'
 							class='form-control' placeholder='0670000000'
 							value="<%out.println(ServletHelper.getValue("tel", params));%>"
 							name='tel' required>

@@ -31,14 +31,22 @@ public class Authen extends HttpServlet {
 	String login=req.getParameter("login");
 	String mdp=req.getParameter("mdp");
 
-	List<Client> l = Init.getInstance().getClientDao().listerClients();
-	for(int i=0;i<l.size();++i){
-		if(l.get(i).getMail().equals(login)){
-			if(l.get(i).getMdp().equals(mdp)){
+	List<Client> clients = Init.getInstance().getClientDao().listerClients();
+	List<Barber> barbers = Init.getInstance().getBarberDao().listerBarbers();
+	for(int i=0;i<clients.size();++i){
+		if(clients.get(i).getMail().equals(login)){
+			if(clients.get(i).getMdp().equals(mdp)){
 				res.sendRedirect("choixrdv.jsp?login="+login);
 			}		
 		}
-	}		    
+	}
+	for(int i=0;i<barbers.size();++i){
+		if(barbers.get(i).getMail().equals(login)){
+			if(barbers.get(i).getMdp().equals(mdp)){
+				res.sendRedirect("choixrdv.jsp?login="+login);
+			}		
+		}
+	}
 	res.sendRedirect("connexion.jsp");	
 	out.println("</center></body>");
 
