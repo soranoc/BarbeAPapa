@@ -33,7 +33,7 @@
 	List<Client> clients = bdd.getClients();
 	Barber barber = null;
 	Client client = null;
-	String login = "angetheo@gmail.com";
+	String login = request.getParameter("login");
 	for (int i = 0; i < barbers.size(); ++i) {
 		if (barbers.get(i).getMail().equals(login)) {
 			barber = barbers.get(i);

@@ -35,7 +35,7 @@ public class Authen extends HttpServlet {
 	for(int i=0;i<l.size();++i){
 		if(l.get(i).getMail().equals(login)){
 			if(l.get(i).getMdp().equals(mdp)){
-				res.sendRedirect("choixrdv.jsp");
+				res.sendRedirect("choixrdv.jsp?login="+login);
 			}		
 		}
 	}		    

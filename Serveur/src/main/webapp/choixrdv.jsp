@@ -1,6 +1,7 @@
 <%@ page import="java.util.List"%>
 <%@ page import="org.Serveur.BDD"%>
 <%@ page import="org.Serveur.Barber"%>
+<%@ page import="javax.servlet.http.*"%>
 
 <html>
 <head>
@@ -23,6 +24,7 @@
 <%
 	BDD bdd = new BDD();
 	List<Barber> barbers = bdd.getBarbers();
+	String login = request.getParameter("login");
 %>
 
 <body>
@@ -35,13 +37,15 @@
 			<div class="row">
 
 				<form class="navbar-form navbar" role="search">
-					<h1>Planifiez votre rendez-vous</h1>
-					<div class="form-group">
-						<input type="text" class="col-sm-2 push-col-md-1 form-control"
-							placeholder="Ville">
-					</div>
-					<button type="submit" class="btn btn-default">Rechercher</button>
-					<a href="profil.jsp" class="nav navbar-nav navbar-right">Profil</a>
+					<h1>
+						Planifiez votre rendez-vous
+						<div class="form-group">
+							<input type="text" class="col-sm-2 push-col-md-1 form-control"
+								placeholder="Ville">
+						</div>
+						<button type="submit" class="btn btn-default">Rechercher</button>
+						<a class="btn btn-default" href="profil.jsp?login=<%out.print(login);%>" role="button">Profil</a>
+					</h1>
 				</form>
 			</div>
 		</div>
