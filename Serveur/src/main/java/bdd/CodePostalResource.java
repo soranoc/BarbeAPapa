@@ -20,7 +20,7 @@ import javax.ws.rs.core.MediaType;
 public class CodePostalResource {
 
 	private final InputStream fichier = getClass().getResourceAsStream(
-			"../../villes_france.csv");
+			"../villes_france.csv");
 
 	private static CPDao dao = Init.getInstance().getCPDao();
 
