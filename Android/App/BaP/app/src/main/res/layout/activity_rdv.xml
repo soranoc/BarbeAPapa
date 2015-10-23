@@ -16,28 +16,17 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/nom_barbier"
-        android:layout_below="@+id/imageView2"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:hint="Barbier"
-        android:textColor="#ffffff"
-        android:textColorHint="#ffffff" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:inputType="date"
         android:ems="10"
         android:id="@+id/date"
-        android:layout_below="@+id/nom_barbier"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:hint="Date"
         android:textColor="#ffffff"
-        android:textColorHint="#ffffff" />
+        android:textColorHint="#ffffff"
+        android:layout_below="@+id/spinner"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -50,7 +39,9 @@
         android:layout_alignParentStart="true"
         android:hint="Heure"
         android:textColor="#ffffff"
-        android:textColorHint="#ffffff" />
+        android:textColorHint="#ffffff"
+        android:layout_alignRight="@+id/date"
+        android:layout_alignEnd="@+id/date" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -58,14 +49,26 @@
         android:layout_height="wrap_content"
         android:text="Valider"
         android:id="@+id/submit"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/nom_barbier"
-        android:layout_alignEnd="@+id/nom_barbier"
         android:background="@drawable/rose"
         android:textColor="#ffffff"
-        android:onClick="doValide"/>
+        android:onClick="doValide"
+        android:layout_below="@+id/heure"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/spinner"
+        android:layout_alignEnd="@+id/spinner" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:layout_below="@+id/imageView2"
+        android:textColor="#FFFFFF"
+        android:background="#ffffff"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <!--Button
         android:layout_width="wrap_content"

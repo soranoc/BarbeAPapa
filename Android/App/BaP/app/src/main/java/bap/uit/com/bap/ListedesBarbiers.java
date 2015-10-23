@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Spinner;
 
 public class ListedesBarbiers extends AppCompatActivity {
 
@@ -13,6 +14,10 @@ public class ListedesBarbiers extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listedes_barbiers);
+
+        Spinner mySpinner=(Spinner) findViewById(R.id.listeBarbiers);
+
+
     }
 
     @Override
@@ -37,8 +42,13 @@ public class ListedesBarbiers extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void doPageBarbier(View view){
-        Intent intent = new Intent(ListedesBarbiers.this, PageBarbier.class);
+    public void onReserver(View view){
+
+
+        Spinner mySpinner=(Spinner) findViewById(R.id.listeBarbiers);
+        String text = mySpinner.getSelectedItem().toString();
+
+        Intent intent = new Intent(ListedesBarbiers.this, RDV.class);
         startActivity(intent);
     }
 }

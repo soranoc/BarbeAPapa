@@ -22,4 +22,26 @@
         </TableRow>
     </ScrollView>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Button"
+        android:id="@+id/register"
+        android:onClick="onReserver"
+        android:textColor="#ffffff"
+        android:background="@drawable/rose"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/listeBarbiers"
+        android:layout_alignEnd="@+id/listeBarbiers" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listeBarbiers"
+        android:layout_below="@+id/scrollView4"
+        android:layout_toRightOf="@+id/scrollView4"
+        android:layout_toEndOf="@+id/scrollView4" />
+
 </RelativeLayout>

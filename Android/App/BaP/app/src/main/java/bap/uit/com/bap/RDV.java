@@ -12,7 +12,9 @@ import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -24,10 +26,22 @@ public class RDV extends AppCompatActivity {
 
 
     DialogFragment dial;
+
+    private TextView selection;
+    private static final String[] items={"-choisir un Barbier-","Barbier 1", "Barbier 2", "Barbier 3", "Barbier 4", "Barbier 5", "Barbier 6"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rdv);
+
+        // ici trouver la liste de barbier
+
+        
+        Spinner spin=(Spinner)findViewById(R.id.spinner);
+        ArrayAdapter<String> aa=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,items);
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spin.setAdapter(aa);
     }
 
     @Override
@@ -85,9 +99,8 @@ public class RDV extends AppCompatActivity {
 
         String nomBarbierS, heureS, dateS;
 
-        TextView nomBarbier;
-        nomBarbier = (TextView) findViewById(R.id.nom_barbier);
-        nomBarbierS= nomBarbier.getText()+"";
+        Spinner mySpinner=(Spinner) findViewById(R.id.spinner);
+        nomBarbierS = mySpinner.getSelectedItem().toString();
 
         TextView heure =null;
         heure = (TextView) findViewById(R.id.date);
@@ -98,7 +111,7 @@ public class RDV extends AppCompatActivity {
         dateS= date.getText()+"";
 
         //String tempo = "vous avez bien pris rdv avec le barbier :"+start.getText()+" à "+heure.getText()+" le "+date.getText();
-        makeText(getApplicationContext(),"votre rendez vous avec "+nomBarbierS+" à "+heureS+" le "+dateS+"est envoyé.... batard",LENGTH_LONG).show();
+        makeText(getApplicationContext(),"votre rendez vous avec "+nomBarbierS+" à "+heureS+" le "+dateS+" est envoyé.... batard",LENGTH_LONG).show();
         Intent intent = new Intent(RDV.this,ChoixClient.class);
         startActivity(intent);
     }

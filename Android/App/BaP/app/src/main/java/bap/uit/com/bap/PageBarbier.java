@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 public class PageBarbier extends AppCompatActivity {
 
@@ -13,6 +14,18 @@ public class PageBarbier extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page_barbier);
+
+        //il faut recup la bdd ici
+        String entrepriseS="entreprise";
+        TextView entreprise =null;
+        entreprise = (TextView) findViewById(R.id.entreprise);
+        entreprise.setText(entrepriseS);
+
+        String descriptionS="blblkjsjkfhsjkdhf sfjeskfhgjksgf klfgksjgj kgkjhgiuer tkj jdhgkjh  merci";
+        TextView description =null;
+        description = (TextView) findViewById(R.id.description);
+        description.setText(descriptionS);
+
     }
 
     @Override
