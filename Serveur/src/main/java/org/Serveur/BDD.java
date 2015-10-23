@@ -14,4 +14,8 @@ public class BDD {
 	public List<Barber> getBarbers(){
 		return init.getBarberDao().listerBarbers();
 	}
+	
+	public List<Client> getClients(){
+		return init.getClientDao().listerClients();
+	}
 }
