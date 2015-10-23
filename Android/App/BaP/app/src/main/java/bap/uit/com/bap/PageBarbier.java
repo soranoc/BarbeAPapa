@@ -10,13 +10,19 @@ import android.widget.TextView;
 
 public class PageBarbier extends AppCompatActivity {
 
+    public static String nom="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page_barbier);
 
+        final Intent intent = getIntent();
+        nom= intent.getStringExtra(ListedesBarbiers.nom);
         //il faut recup la bdd ici
-        String entrepriseS="entreprise";
+        String entrepriseS=nom;
+        intent.putExtra(nom, nom);
+
         TextView entreprise =null;
         entreprise = (TextView) findViewById(R.id.entreprise);
         entreprise.setText(entrepriseS);
@@ -52,6 +58,7 @@ public class PageBarbier extends AppCompatActivity {
 
     public void doReserver(View view){
         Intent intent = new Intent(PageBarbier.this, RDV.class);
+        intent.putExtra(nom, nom);
         startActivity(intent);
     }
 }

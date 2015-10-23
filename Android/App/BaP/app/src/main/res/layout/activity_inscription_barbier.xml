@@ -204,7 +204,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Register"
-        android:id="@+id/register"
+        android:id="@+id/profil"
         android:onClick="doRegister"
         android:textColor="#ffffff"
         android:background="@drawable/rose"

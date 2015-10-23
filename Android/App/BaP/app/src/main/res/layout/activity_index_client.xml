@@ -24,8 +24,8 @@
         android:textColor="#FFFFFFFF"
         android:background="@drawable/rose"
         android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/register"
-        android:layout_alignStart="@+id/register"
+        android:layout_alignLeft="@+id/profil"
+        android:layout_alignStart="@+id/profil"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign up"
-        android:id="@+id/register"
+        android:id="@+id/profil"
         android:background="@drawable/rose"
         android:onClick="doRegister"
         android:textColor="#FFFFFFFF"

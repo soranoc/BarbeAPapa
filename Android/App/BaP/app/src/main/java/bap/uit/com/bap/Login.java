@@ -2,7 +2,6 @@ package bap.uit.com.bap;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -45,21 +44,6 @@ public class Login extends Activity {
     }
     public void doLogin(View view){
 
-        //rajouter boolean si barbier dans le intent
-
-        //ne marche pas
-        /*
-        if(ESTBARBIER.equals("oui")) {
-            estBarbier = false;
-        }
-        if(!estBarbier){
-            Intent intent = new Intent(Login.this, RDV.class);
-            startActivity(intent);
-        } else {
-            Intent intent = new Intent(Login.this, EDT_Barbier.class);
-            startActivity(intent);
-        }
-        */
         String mdpS;
         String loginS;
         TextView login =null;
@@ -70,10 +54,74 @@ public class Login extends Activity {
         mdp = (TextView) findViewById(R.id.mdp);
         mdpS = mdp.getText()+"";
 
-        Intent intent = new Intent(Login.this, ChoixClient.class);
-        makeText(getApplicationContext(), "Bonjour "+loginS+" et Bienvenue !", LENGTH_LONG).show();
+        if(loginS.equals("") & mdpS.equals("")){
+            login.setHintTextColor(getResources().getColor(R.color.red));
+            mdp.setHintTextColor(getResources().getColor(R.color.red));
+            makeText(getApplicationContext(), "il faut rentrer un login et un mot de passe", LENGTH_LONG).show();
+        } else if(mdpS.equals("")) {
+            mdp.setHintTextColor(getResources().getColor(R.color.red));
+            makeText(getApplicationContext(), "il faut rentrer un mot de passe", LENGTH_LONG).show();
+        }else if(loginS.equals("")){
+            login.setHintTextColor(getResources().getColor(R.color.red));
+            makeText(getApplicationContext(), "il faut rentrer un login", LENGTH_LONG).show();
+        }else {
 
-        intent.putExtra(log, loginS);
-        startActivityForResult(intent, 0);
+            Intent intent = new Intent(Login.this, ChoixClient.class);
+            makeText(getApplicationContext(), "Bonjour " + loginS + " et Bienvenue !", LENGTH_LONG).show();
+            intent.putExtra(log, loginS);
+            startActivityForResult(intent, 0);
+        }
+
     }
+/*
+    public void invokeWS(RequestParams params){
+        // Show Progress Dialog
+        // Make RESTful webservice call using AsyncHttpClient object
+        AsyncHttpClient client = new AsyncHttpClient();
+        client.get("46.105.59.176/v1/barber",params ,new AsyncHttpResponseHandler() {
+            // When the response returned by REST has Http response code '200'
+
+            @Override
+            public void onSuccess(String response) {
+                // Hide Progress Dialog
+                try {
+                    // JSON Object
+                    JSONObject obj = new JSONObject(response);
+                    // When the JSON response has status boolean value assigned with true
+                    if(obj.getBoolean("status")){
+                        Toast.makeText(getApplicationContext(), "You are successfully logged in!", Toast.LENGTH_LONG).show();
+                        // Navigate to Home screen
+                    }
+                    // Else display error message
+                    else{
+                        Toast.makeText(getApplicationContext(), obj.getString("error_msg"), Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    Toast.makeText(getApplicationContext(), "Error Occured [Server's JSON response might be invalid]!", Toast.LENGTH_LONG).show();
+                    e.printStackTrace();
+
+                }
+            }
+            // When the response returned by REST has Http response code other than '200'
+            @Override
+            public void onFailure(int statusCode, Throwable error,
+                                  String content) {
+                // Hide Progress Dialog
+                // When Http response code is '404'
+                if(statusCode == 404){
+                    Toast.makeText(getApplicationContext(), "Requested resource not found", Toast.LENGTH_LONG).show();
+                }
+                // When Http response code is '500'
+                else if(statusCode == 500){
+                    Toast.makeText(getApplicationContext(), "Something went wrong at server end", Toast.LENGTH_LONG).show();
+                }
+                // When Http response code other than 404, 500
+                else{
+                    Toast.makeText(getApplicationContext(), "Unexpected Error occcured! [Most common Error: Device might not be connected to Internet or remote server is not up and running]", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }*/
+
 }

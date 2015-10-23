@@ -50,9 +50,21 @@ public class LoginBarbier extends AppCompatActivity {
         TextView mdp =null;
         mdp = (TextView) findViewById(R.id.mdp);
         mdpS = mdp.getText()+"";
-        Intent intent = new Intent(LoginBarbier.this, EDT_Barbier.class);
-        makeText(getApplicationContext(), "Bonjour "+loginS+" et Bienvenue !", LENGTH_LONG).show();
 
-        startActivity(intent);
+        if(loginS.equals("") & mdpS.equals("")){
+            login.setHintTextColor(getResources().getColor(R.color.red));
+            mdp.setHintTextColor(getResources().getColor(R.color.red));
+            makeText(getApplicationContext(), "il faut rentrer un login et un mot de passe", LENGTH_LONG).show();
+        } else if(mdpS.equals("")) {
+            mdp.setHintTextColor(getResources().getColor(R.color.red));
+            makeText(getApplicationContext(), "il faut rentrer un mot de passe", LENGTH_LONG).show();
+        }else if(loginS.equals("")){
+            login.setHintTextColor(getResources().getColor(R.color.red));
+            makeText(getApplicationContext(), "il faut rentrer un login", LENGTH_LONG).show();
+        }else {
+            Intent intent = new Intent(LoginBarbier.this, EDT_Barbier.class);
+            makeText(getApplicationContext(), "Bonjour " + loginS + " et Bienvenue !", LENGTH_LONG).show();
+            startActivity(intent);
+        }
     }
 }

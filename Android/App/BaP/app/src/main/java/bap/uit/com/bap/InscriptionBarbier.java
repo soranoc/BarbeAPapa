@@ -58,7 +58,7 @@ public class InscriptionBarbier extends AppCompatActivity {
         TextView mail =null;
         mail = (TextView) findViewById(R.id.login);
 //        mailS= mail.getText()+"";
-        mailS="toto@tamer.fr";
+        mailS="toto@gmail.fr";
 
         TextView mdp =null;
         mdp = (TextView) findViewById(R.id.mdp);

@@ -26,6 +26,7 @@ public class RDV extends AppCompatActivity {
 
 
     DialogFragment dial;
+    public static String nom="";
 
     private TextView selection;
     private static final String[] items={"-choisir un Barbier-","Barbier 1", "Barbier 2", "Barbier 3", "Barbier 4", "Barbier 5", "Barbier 6"};
@@ -35,6 +36,9 @@ public class RDV extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rdv);
 
+        final Intent intent = getIntent();
+        nom= intent.getStringExtra(PageBarbier.nom);
+
         // ici trouver la liste de barbier
 
 
@@ -42,6 +46,18 @@ public class RDV extends AppCompatActivity {
         ArrayAdapter<String> aa=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,items);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin.setAdapter(aa);
+
+        if(!(nom ==null)) {
+
+
+            if (!nom.equals("")) {
+                spin.setEnabled(false);
+                items[0] = nom;
+                aa = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, items);
+                aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spin.setAdapter(aa);
+            }
+        }
     }
 
     @Override
@@ -111,7 +127,7 @@ public class RDV extends AppCompatActivity {
         dateS= date.getText()+"";
 
         //String tempo = "vous avez bien pris rdv avec le barbier :"+start.getText()+" à "+heure.getText()+" le "+date.getText();
-        makeText(getApplicationContext(),"votre rendez vous avec "+nomBarbierS+" à "+heureS+" le "+dateS+" est envoyé.... batard",LENGTH_LONG).show();
+        makeText(getApplicationContext(),"votre rendez vous avec "+nomBarbierS+" à "+heureS+"h le "+dateS+" est envoyé",LENGTH_LONG).show();
         Intent intent = new Intent(RDV.this,ChoixClient.class);
         startActivity(intent);
     }
